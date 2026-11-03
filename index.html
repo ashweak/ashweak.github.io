@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lance Agua — Full-stack Developer</title>
+<meta name="description" content="Portfolio of Lance Agua, a BSIT student and full-stack developer building web and Android apps.">
+<meta property="og:title" content="Lance Agua — Full-stack Developer">
+<meta property="og:description" content="Portfolio of Lance Agua, a BSIT student and full-stack developer building web and Android apps.">
+<meta property="og:image" content="assets/img/portrait-light.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/vt323-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'VT323';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/vt323-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Press Start 2P';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/press-start-2p-latin-400-normal.woff2) format('woff2')}
+.foot a{overflow-wrap:anywhere}
+
+:root{--c0a0a0a:#0a0a0a;--c0e0e0e:#0e0e0e;--c121212:#121212;--c1a1a1a:#1a1a1a;--c1f1f1f:#1f1f1f;--c262626:#262626;--c2e2e2e:#2e2e2e;--c3a3a3a:#3a3a3a;--c4a4a4a:#4a4a4a;--c525252:#525252;--c5e5e5e:#5e5e5e;--c6b6b6b:#6b6b6b;--c858585:#858585;--ca3a3a3:#a3a3a3;--ccfcfcf:#cfcfcf;--cd0d0d0:#d0d0d0;--cd4d4d4:#d4d4d4;--ce0e0e0:#e0e0e0;--ce5e5e5:#e5e5e5;--cffffff:#ffffff;--glow1:rgba(255,255,255,0.12);--glow2:rgba(255,255,255,0.26)}
+.tk.light{--c0a0a0a:#f4f4f2;--c0e0e0e:#ebebe9;--c121212:#ffffff;--c1a1a1a:#e6e6e4;--c1f1f1f:#dfdfdd;--c262626:#d9d9d7;--c2e2e2e:#d2d2d0;--c3a3a3a:#c2c2c0;--c4a4a4a:#a9a9a7;--c525252:#a3a3a1;--c5e5e5e:#6a6a68;--c6b6b6b:#9a9a98;--c858585:#5b5b59;--ca3a3a3:#444442;--ccfcfcf:#2a2a28;--cd0d0d0:#1f1f1f;--cd4d4d4:#222220;--ce0e0e0:#161616;--ce5e5e5:#111111;--cffffff:#000000;--glow1:rgba(0,0,0,0.08);--glow2:rgba(0,0,0,0.18)}
+.theme-btn{display:flex;align-items:center;gap:8px;min-height:32px;padding:0;border:0;background:transparent;color:var(--c858585);font-family:'VT323',monospace;font-size:16px;cursor:pointer}
+.pic-light{display:none !important}
+.tk.light .pic-dark{display:none !important}
+.tk.light .pic-light{display:block !important}
+.theme-btn:hover{color:var(--cd0d0d0)}
+body{margin:0;background:var(--c0a0a0a)}
+a{color:var(--ccfcfcf);text-decoration:none}a:hover{color:var(--cffffff)}
+.nav a{color:var(--c858585)}.nav a:hover{color:var(--cd0d0d0)}
+.menu-btn{display:none}
+@media (max-width: 760px){
+aside{position:fixed;top:0;left:0;width:0;height:0;max-width:none !important;flex:none !important;border:0 !important;background:transparent !important;z-index:30}
+.menu-btn{display:flex !important;position:fixed;top:8px;left:8px;z-index:31}
+.side{position:fixed !important;top:0;left:0;width:78vw;max-width:300px;height:100vh !important;overflow:auto;background:var(--c0e0e0e);padding:64px 22px 24px !important;transform:translateX(-100%);opacity:0;pointer-events:none;transition:transform .3s ease,opacity .3s ease}
+.side.open{transform:none;opacity:1;pointer-events:auto}
+main{padding-top:60px !important}
+}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.blink{animation:blink 1s steps(1) infinite}
+@media (max-width: 1180px){.bento{grid-template-columns:repeat(2,minmax(0,1fr)) !important}.bento>*{grid-column:auto !important;grid-row:auto !important}.bento>#about,.bento>#status,.bento>#stack,.bento>#projects,.bento>#seminars{grid-column:1 / -1 !important}}
+@media (max-width: 700px){.bento{grid-template-columns:minmax(0,1fr) !important}.bento>section{padding:18px !important}}
+@media (max-width: 760px){main{padding:64px 16px 40px !important}main section,main>div>div{padding-left:0 !important;padding-right:0 !important}}
+.ttl-px{font-size:clamp(15px,4.6vw,24px) !important;overflow-wrap:anywhere}
+
+[hidden]{display:none !important}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--cd0d0d0);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="tk" style="min-height: 1300px; background: var(--c0a0a0a); color: var(--ce5e5e5); font-family: 'VT323', monospace; font-size: 18px; line-height: 1.35; display: flex; flex-wrap: wrap"><script>try{if(localStorage.getItem("la-theme")==="light")document.currentScript.parentElement.classList.add("light")}catch(e){}</script>
+<aside style="flex: 1 1 200px; max-width: 230px; border-right: 1px solid var(--c262626); background: var(--c0e0e0e); box-sizing: border-box">
+<button class="menu-btn" type="button" data-action="toggleMenu" aria-label="Open menu" aria-expanded="false" style="align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: var(--ce0e0e0); cursor: pointer"><svg width="22" height="22" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 2h6v1H1zM1 4h6v1H1zM1 6h6v1H1z" fill="currentColor"></path></svg></button>
+<div class="side" style="position: sticky; top: 0; height: 100vh; padding: 28px 18px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<a href="index.html" class="brand" aria-label="Lance Agua, home" style="font-family: 'Press Start 2P', monospace; font-size: 11px; line-height: 1.6; color: var(--ce0e0e0)">LANCE AGUA</a>
+<nav class="nav" aria-label="Sections" style="display: flex; flex-direction: column; gap: 22px; font-size: 18px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<a href="gear.html" style="display: flex; align-items: center; gap: 10px"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 1h6v4H1zM2 2v2h4V2zM3 5h2v1H3zM2 6h4v1H2z" fill="currentColor" fill-rule="evenodd"></path></svg>Gear</a>
+</div>
+<hr style="border: 0; height: 1px; background: var(--c262626); margin: 0">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<a href="collabs.html" style="display: flex; align-items: center; gap: 10px"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 1h2v2H1zM5 1h2v2H5zM0 4h4v3H0zM4 4h4v3H4z" fill="currentColor"></path></svg>Collabs</a>
+<a href="recommendations.html" style="display: flex; align-items: center; gap: 10px"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 1h6v4H4v1H3v1H2V5H1z" fill="currentColor"></path></svg>Recommendations</a>
+</div>
+<hr style="border: 0; height: 1px; background: var(--c262626); margin: 0">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<a href="projects.html">Projects</a>
+<a href="experience.html">Experience</a>
+<a href="stack.html">Stack</a>
+<a href="certifications.html">Certifications</a>
+<a href="seminars.html">Seminars</a>
+</div>
+</nav>
+<div class="foot" style="margin-top: auto; display: flex; flex-direction: column; gap: 10px">
+<button class="theme-btn" type="button" data-action="toggleTheme" aria-label="Light mode"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M3 0h2v1H3zM3 7h2v1H3zM0 3h1v2H0zM7 3h1v2H7zM1 1h1v1H1zM6 1h1v1H6zM1 6h1v1H1zM6 6h1v1H6zM2 2h4v4H2z" fill="currentColor"></path></svg>Light mode</button>
+<hr style="border: 0; height: 1px; background: var(--c262626); margin: 0">
+<p style="margin: 0; color: var(--c858585); font-size: 16px; line-height: 1.3">For work, collabs &amp; everything else, reach me at</p>
+<a href="mailto:lanceaagua@gmail.com" style="display: flex; align-items: center; gap: 8px; color: var(--ce0e0e0); font-size: 17px"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 2h8v5H0zM1 3v3h6V3zM2 3h1v1H2zM5 3h1v1H5zM3 4h2v1H3z" fill="currentColor" fill-rule="evenodd"></path></svg>lanceaagua@gmail.com</a>
+</div>
+</div>
+</aside>
+<main style="flex: 999 1 560px; min-width: 0; padding: 40px 32px 64px; box-sizing: border-box; display: flex; justify-content: center">
+<div style="width: 100%; max-width: 1080px; display: flex; flex-direction: column; gap: 20px">
+
+
+<div class="bento" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+
+<section id="about" style="grid-column: 1 / 5; grid-row: 1 / 2; padding: 36px; display: flex; flex-wrap: wrap; gap: 36px; align-items: center">
+<img class="pic-dark" src="assets/img/portrait-dark.png" alt="Halftone portrait of Lance Agua" width="220" height="220" style="flex: 0 0 auto; width: 220px; height: 220px"><img class="pic-light" src="assets/img/portrait-light.png" alt="Halftone portrait of Lance Agua" width="220" height="220" style="flex: 0 0 auto; width: 220px; height: 220px">
+<div style="flex: 1 1 320px; max-width: 620px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h1 class="ttl-px" style="margin: 0; font-family: 'Press Start 2P', monospace; font-size: 26px; line-height: 1.5">Lance Agua</h1>
+<p style="margin: 0; color: var(--c858585)">4th-year student · Our Lady of Fatima University</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.35; color: var(--ccfcfcf)">I build full-stack web apps with Laravel and FastAPI, from database to deploy.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; font-size: 17px"><a href="https://github.com/ashweak" target="_blank" rel="noopener">github ↗</a><a href="https://linkedin.com/" target="_blank" rel="noopener">linkedin ↗</a></div>
+</div>
+</section>
+
+<section id="status" style="grid-column: 1 / 2; grid-row: 2 / 3; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<div style="color: var(--c858585); font-size: 16px">status</div>
+<div style="font-size: 26px; line-height: 1.1; color: var(--ce0e0e0)"><span class="blink" style="color: var(--ccfcfcf)">●</span> Open to work</div>
+<div style="color: var(--ca3a3a3)">Internships, junior roles and freelance projects</div>
+</section>
+
+<section id="stack" style="grid-column: 2 / 5; grid-row: 2 / 3; padding: 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px">
+<div style="align-self: stretch; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; color: var(--c858585); font-size: 16px"><span>stack</span><a href="stack.html" style="color: var(--c858585)">full stack →</a></div>
+<div style="align-self: stretch; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 14px 32px">
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="width: 84px; color: var(--c858585); font-size: 16px">backend</span>
+<span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">Laravel</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">PHP</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">FastAPI</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">Python</span>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="width: 84px; color: var(--c858585); font-size: 16px">frontend</span>
+<span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">HTML</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">CSS</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">JavaScript</span>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="width: 84px; color: var(--c858585); font-size: 16px">database</span>
+<span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">MySQL</span>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="width: 84px; color: var(--c858585); font-size: 16px">mobile / iot</span>
+<span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">Java</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">Android</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">SQLite</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">ESP8266</span>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="width: 84px; color: var(--c858585); font-size: 16px">tools</span>
+<span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">Git</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">Linux (WSL)</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 16px; color: var(--ccfcfcf)">Composer</span>
+</div>
+
+</div>
+</section>
+
+<section id="projects" style="grid-column: 1 / 3; grid-row: 3 / 5; padding: 22px 26px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 16px"><span>projects</span><a href="projects.html" style="color: var(--c858585)">all projects →</a></div>
+
+<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
+<div role="img" aria-label="Screenshot placeholder" style="flex: 0 0 auto; width: 110px; height: 72px; background: var(--c262626)"></div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 21px; font-weight: 400; color: var(--ce0e0e0)">Sand Siever Control</h3><a href="projects.html" aria-label="Open project">↗</a></div>
+<p style="margin: 0; color: var(--ca3a3a3)">Android app that controls a sand sieving machine over Wi-Fi (ESP8266), with roles, tasks and reports.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 15px; color: var(--ccfcfcf)">Java</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 15px; color: var(--ccfcfcf)">Android</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 15px; color: var(--ccfcfcf)">SQLite</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 15px; color: var(--ccfcfcf)">ESP8266</span></div>
+</div>
+</article>
+
+<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
+<div role="img" aria-label="Screenshot placeholder" style="flex: 0 0 auto; width: 110px; height: 72px; background: var(--c262626)"></div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 21px; font-weight: 400; color: var(--ce0e0e0)">glutahomeph</h3><a href="projects.html" aria-label="Open project">↗</a></div>
+<p style="margin: 0; color: var(--ca3a3a3)">Order system with secure release and waybill workflow.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 15px; color: var(--ccfcfcf)">Laravel</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 15px; color: var(--ccfcfcf)">PHP</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 15px; color: var(--ccfcfcf)">MySQL</span></div>
+</div>
+</article>
+
+<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
+<div role="img" aria-label="Screenshot placeholder" style="flex: 0 0 auto; width: 110px; height: 72px; background: var(--c262626)"></div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 21px; font-weight: 400; color: var(--ce0e0e0)">Pure Motion</h3><a href="projects.html" aria-label="Open project">↗</a></div>
+<p style="margin: 0; color: var(--ca3a3a3)">Fitness trainer site with programs, booking schedule and email.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 15px; color: var(--ccfcfcf)">Laravel</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 15px; color: var(--ccfcfcf)">PHP</span></div>
+</div>
+</article>
+
+<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
+<div role="img" aria-label="Screenshot placeholder" style="flex: 0 0 auto; width: 110px; height: 72px; background: var(--c262626)"></div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 21px; font-weight: 400; color: var(--ce0e0e0)">UrbanSteps</h3><a href="projects.html" aria-label="Open project">↗</a></div>
+<p style="margin: 0; color: var(--ca3a3a3)">Online shoe store with accounts, cart, checkout and receipts.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 15px; color: var(--ccfcfcf)">PHP</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 15px; color: var(--ccfcfcf)">MySQL</span></div>
+</div>
+</article>
+
+</section>
+
+<section id="experience" style="grid-column: 3 / 5; grid-row: 3 / 4; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 16px"><span>experience</span><a href="experience.html" style="color: var(--c858585)">full journey →</a></div>
+
+<div style="display: flex; gap: 16px">
+<div style="width: 108px; flex: 0 0 auto; color: var(--c858585)">2026 – present</div>
+<div style="min-width: 0"><div style="color: var(--ce0e0e0)">Freelance Web Developer · glutahomeph</div><div style="color: var(--ca3a3a3); font-size: 17px">Building a Laravel order system with secure release and waybill workflow.</div></div>
+</div>
+
+<div style="display: flex; gap: 16px">
+<div style="width: 108px; flex: 0 0 auto; color: var(--c858585)">2026 – present</div>
+<div style="min-width: 0"><div style="color: var(--ce0e0e0)">Freelance Web Developer · Pure Motion</div><div style="color: var(--ca3a3a3); font-size: 17px">Building a fitness trainer website with programs, booking schedule and email.</div></div>
+</div>
+
+<div style="display: flex; gap: 16px">
+<div style="width: 108px; flex: 0 0 auto; color: var(--c858585)">2025 – present</div>
+<div style="min-width: 0"><div style="color: var(--ce0e0e0)">Android Developer · Sand Siever Control</div><div style="color: var(--ca3a3a3); font-size: 17px">Android app that controls a sand sieving machine over Wi-Fi.</div></div>
+</div>
+
+<div style="display: flex; gap: 16px">
+<div style="width: 108px; flex: 0 0 auto; color: var(--c858585)">2025</div>
+<div style="min-width: 0"><div style="color: var(--ce0e0e0)">Web Developer · UrbanSteps</div><div style="color: var(--ca3a3a3); font-size: 17px">PHP &amp; MySQL online shoe store with cart and checkout.</div></div>
+</div>
+
+</section>
+
+<section id="certifications" style="grid-column: 3 / 5; grid-row: 4 / 5; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 16px"><span>certifications</span><a href="certifications.html" style="color: var(--c858585)">all →</a></div>
+
+<div style="display: flex; justify-content: space-between; gap: 8px"><span>CEFR English Language Proficiency Certificate</span><a href="certifications.html" style="color: var(--c858585)">verify ↗</a></div>
+
+<div style="display: flex; justify-content: space-between; gap: 8px"><span>Information Technology Specialist: Networking</span><a href="certifications.html" style="color: var(--c858585)">verify ↗</a></div>
+
+<div style="display: flex; justify-content: space-between; gap: 8px"><span>Information Technology Specialist: Python</span><a href="certifications.html" style="color: var(--c858585)">verify ↗</a></div>
+
+<div style="display: flex; justify-content: space-between; gap: 8px"><span>Cisco Certified Support Technician: Cybersecurity</span><a href="certifications.html" style="color: var(--c858585)">verify ↗</a></div>
+
+</section>
+
+<section id="seminars" style="grid-column: 1 / 5; grid-row: 5 / 6; padding: 22px 26px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 16px"><span>seminars</span><a href="seminars.html" style="color: var(--c858585)">all →</a></div>
+
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--c2e2e2e)"><span>Beyond the Air Gap <span style="color: var(--c858585)">· PCS via JPCS</span></span><span style="color: var(--c858585)">Jan 2026</span></div>
+
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--c2e2e2e)"><span>Cybersecurity Trends and Issues, and Machine Learning in Predictive Data Analytics <span style="color: var(--c858585)">· OLFU</span></span><span style="color: var(--c858585)">Nov 2025</span></div>
+
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--c2e2e2e)"><span>Revolution of Generative A.I. &amp; Evolution of Multimedia Arts <span style="color: var(--c858585)">· Seminar</span></span><span style="color: var(--c858585)">Oct 2024</span></div>
+
+</section>
+
+</div>
+</div>
+</main>
+</div>
+<script src="assets/main.js" defer></script>
+</body>
+</html>
