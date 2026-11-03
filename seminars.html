@@ -19,7 +19,7 @@
 
 :root{--c0a0a0a:#0a0a0a;--c0e0e0e:#0e0e0e;--c121212:#121212;--c1a1a1a:#1a1a1a;--c1f1f1f:#1f1f1f;--c262626:#262626;--c2e2e2e:#2e2e2e;--c3a3a3a:#3a3a3a;--c4a4a4a:#4a4a4a;--c525252:#525252;--c5e5e5e:#5e5e5e;--c6b6b6b:#6b6b6b;--c858585:#858585;--ca3a3a3:#a3a3a3;--ccfcfcf:#cfcfcf;--cd0d0d0:#d0d0d0;--cd4d4d4:#d4d4d4;--ce0e0e0:#e0e0e0;--ce5e5e5:#e5e5e5;--cffffff:#ffffff;--glow1:rgba(255,255,255,0.12);--glow2:rgba(255,255,255,0.26)}
 .tk.light{--c0a0a0a:#f4f4f2;--c0e0e0e:#ebebe9;--c121212:#ffffff;--c1a1a1a:#e6e6e4;--c1f1f1f:#dfdfdd;--c262626:#d9d9d7;--c2e2e2e:#d2d2d0;--c3a3a3a:#c2c2c0;--c4a4a4a:#a9a9a7;--c525252:#a3a3a1;--c5e5e5e:#6a6a68;--c6b6b6b:#9a9a98;--c858585:#5b5b59;--ca3a3a3:#444442;--ccfcfcf:#2a2a28;--cd0d0d0:#1f1f1f;--cd4d4d4:#222220;--ce0e0e0:#161616;--ce5e5e5:#111111;--cffffff:#000000;--glow1:rgba(0,0,0,0.08);--glow2:rgba(0,0,0,0.18)}
-.theme-btn{display:flex;align-items:center;gap:8px;min-height:32px;padding:0;border:0;background:transparent;color:var(--c858585);font-family:'VT323',monospace;font-size:16px;cursor:pointer}
+.theme-btn{display:flex;align-items:center;gap:8px;min-height:32px;padding:0;border:0;background:transparent;color:var(--c858585);font-family:'VT323',monospace;font-size:14px;cursor:pointer}
 .theme-btn:hover{color:var(--cd0d0d0)}
 body{margin:0;background:var(--c0a0a0a)}
 a{color:var(--ccfcfcf);text-decoration:none}a:hover{color:var(--cffffff)}
@@ -50,9 +50,12 @@ main{padding-top:60px !important}
 [hidden]{display:none !important}
 button{font:inherit}
 :focus-visible{outline:2px solid var(--cd0d0d0);outline-offset:2px}
+.bento>section:not(#about),main [style*="background: var(--c121212)"]{background:var(--c121212) !important;border:1px solid var(--c1f1f1f);border-radius:8px;overflow:hidden}
+.bento>section:not(#about){transition:border-color .2s ease,box-shadow .3s ease}
+.bento>section:not(#about):hover,main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 .gwrap{display:flex;flex-direction:column;gap:44px;padding:0 22px}
 .gsec{display:flex;flex-direction:column;gap:16px}
-.glabel{margin:0;font-size:15px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--c858585)}
+.glabel{margin:0;font-size:13px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--c858585)}
 .ggrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .gcard2{display:flex;flex-direction:column;background:var(--c121212);border:1px solid var(--c1f1f1f);border-radius:8px;overflow:hidden;transition:border-color .2s ease,box-shadow .3s ease}
 .gcard2:hover{border-color:var(--c3a3a3a);box-shadow:0 0 28px var(--glow1)}
@@ -61,20 +64,20 @@ button{font:inherit}
 .tk.light .gimg img{box-shadow:inset 0 0 0 1px #e6e6e4}
 .gfoot{border-top:1px solid var(--c1f1f1f);padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px}
 .gname{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.gname h3{margin:0;font-size:19px;font-weight:400;color:var(--ce5e5e5)}
+.gname h3{margin:0;font-size:17px;font-weight:400;color:var(--ce5e5e5)}
 .gname span{font-size:14px;color:var(--c5e5e5e)}
-.gfoot p{margin:0;font-size:15px;color:var(--c858585)}
+.gfoot p{margin:0;font-size:14px;color:var(--c858585)}
 @media (max-width:1180px){.ggrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.ggrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="tk" style="min-height: 1100px; background: var(--c0a0a0a); color: var(--ce5e5e5); font-family: 'VT323', monospace; font-size: 18px; line-height: 1.35; display: flex; flex-wrap: wrap"><script>try{if(localStorage.getItem("la-theme")==="light")document.currentScript.parentElement.classList.add("light")}catch(e){}</script>
+<div class="tk" style="min-height: 1100px; background: var(--c0a0a0a); color: var(--ce5e5e5); font-family: 'VT323', monospace; font-size: 15px; line-height: 1.35; display: flex; flex-wrap: wrap"><script>try{if(localStorage.getItem("la-theme")==="light")document.currentScript.parentElement.classList.add("light")}catch(e){}</script>
 <aside style="flex: 1 1 200px; max-width: 230px; border-right: 1px solid var(--c262626); background: var(--c0e0e0e); box-sizing: border-box">
 <button class="menu-btn" type="button" data-action="toggleMenu" aria-label="Open menu" aria-expanded="false" style="align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: var(--ce0e0e0); cursor: pointer"><svg width="22" height="22" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 2h6v1H1zM1 4h6v1H1zM1 6h6v1H1z" fill="currentColor"></path></svg></button>
 <div class="side" style="position: sticky; top: 0; height: 100vh; padding: 28px 18px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
 <a href="index.html" class="brand" aria-label="Lance Agua, home" style="font-family: 'Press Start 2P', monospace; font-size: 11px; line-height: 1.6; color: var(--ce0e0e0)">LANCE AGUA</a>
-<nav class="nav" aria-label="Sections" style="display: flex; flex-direction: column; gap: 22px; font-size: 18px">
+<nav class="nav" aria-label="Sections" style="display: flex; flex-direction: column; gap: 22px; font-size: 15px">
 <div style="display: flex; flex-direction: column; gap: 12px">
 <a href="gear.html" style="display: flex; align-items: center; gap: 10px"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 1h6v4H1zM2 2v2h4V2zM3 5h2v1H3zM2 6h4v1H2z" fill="currentColor" fill-rule="evenodd"></path></svg>Gear</a>
 </div>
@@ -95,17 +98,17 @@ button{font:inherit}
 <div class="foot" style="margin-top: auto; display: flex; flex-direction: column; gap: 10px">
 <button class="theme-btn" type="button" data-action="toggleTheme" aria-label="Light mode"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M3 0h2v1H3zM3 7h2v1H3zM0 3h1v2H0zM7 3h1v2H7zM1 1h1v1H1zM6 1h1v1H6zM1 6h1v1H1zM6 6h1v1H6zM2 2h4v4H2z" fill="currentColor"></path></svg>Light mode</button>
 <hr style="border: 0; height: 1px; background: var(--c262626); margin: 0">
-<p style="margin: 0; color: var(--c858585); font-size: 16px; line-height: 1.3">For work, collabs &amp; everything else, reach me at</p>
-<a href="mailto:lanceaagua@gmail.com" style="display: flex; align-items: center; gap: 8px; color: var(--ce0e0e0); font-size: 17px"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 2h8v5H0zM1 3v3h6V3zM2 3h1v1H2zM5 3h1v1H5zM3 4h2v1H3z" fill="currentColor" fill-rule="evenodd"></path></svg>lanceaagua@gmail.com</a>
+<p style="margin: 0; color: var(--c858585); font-size: 14px; line-height: 1.3">For work, collabs &amp; everything else, reach me at</p>
+<a href="mailto:lanceaagua@gmail.com" style="display: flex; align-items: center; gap: 8px; color: var(--ce0e0e0); font-size: 14px"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 2h8v5H0zM1 3v3h6V3zM2 3h1v1H2zM5 3h1v1H5zM3 4h2v1H3z" fill="currentColor" fill-rule="evenodd"></path></svg>lanceaagua@gmail.com</a>
 </div>
 </div>
 </aside>
 <main style="flex: 999 1 560px; min-width: 0; padding: 40px 32px 64px; box-sizing: border-box; display: flex; justify-content: center">
-<div style="width: 100%; max-width: 1080px; display: flex; flex-direction: column; gap: 20px">
+<div style="width: 100%; max-width: 900px; display: flex; flex-direction: column; gap: 20px">
 <section style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
-<a href="index.html" style="color: var(--c858585); font-size: 16px">← back home</a>
-<h1 class="ttl-px" style="margin: 0; font-family: 'Press Start 2P', monospace; font-size: 24px; line-height: 1.5; font-weight: 400">Seminars</h1>
-<p style="margin: 0; font-size: 20px; color: var(--ca3a3a3)">Seminars and talks I've attended to keep learning.</p>
+<a href="index.html" style="color: var(--c858585); font-size: 14px">← back home</a>
+<h1 class="ttl-px" style="margin: 0; font-family: 'Press Start 2P', monospace; font-size: 20px; line-height: 1.5; font-weight: 400">Seminars</h1>
+<p style="margin: 0; font-size: 17px; color: var(--ca3a3a3)">Seminars and talks I've attended to keep learning.</p>
 </section>
 <section id="seminars" style="display: flex; flex-direction: column; gap: 20px; margin-top: 0">
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 32px; padding: 0 22px">
@@ -113,8 +116,8 @@ button{font:inherit}
 <article class="ccard" style="display: flex; flex-direction: column; background: var(--c121212)">
 <img src="assets/img/seminar-pcs.jpg" alt="Beyond the Air Gap: Navigating Data Privacy and GRC in Operational Technology certificate" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: var(--c1a1a1a)">
 <div style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px">
-<span style="display: flex; align-items: center; gap: 6px; font-size: 15px; letter-spacing: 1px; color: var(--c858585)"><svg width="11" height="11" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M6 1h1v2H6zM5 3h1v1H5zM4 4h1v1H4zM3 5h1v1H3zM1 3h1v1H1zM2 4h1v1H2z" fill="currentColor"></path></svg>WEBINAR</span>
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">Beyond the Air Gap: Navigating Data Privacy and GRC in Operational Technology</h3>
+<span style="display: flex; align-items: center; gap: 6px; font-size: 13px; letter-spacing: 1px; color: var(--c858585)"><svg width="11" height="11" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M6 1h1v2H6zM5 3h1v1H5zM4 4h1v1H4zM3 5h1v1H3zM1 3h1v1H1zM2 4h1v1H2z" fill="currentColor"></path></svg>WEBINAR</span>
+<h3 style="margin: 0; font-size: 19px; font-weight: 400; color: var(--ce5e5e5)">Beyond the Air Gap: Navigating Data Privacy and GRC in Operational Technology</h3>
 <p style="margin: 0; color: var(--ca3a3a3)">Philippine Computer Society (PCS) via JPCS · Jan 2026</p>
 </div>
 </article>
@@ -122,8 +125,8 @@ button{font:inherit}
 <article class="ccard" style="display: flex; flex-direction: column; background: var(--c121212)">
 <img src="assets/img/seminar-olfu.jpg" alt="Cybersecurity Trends and Issues, and Machine Learning in Predictive Data Analytics certificate" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: var(--c1a1a1a)">
 <div style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px">
-<span style="display: flex; align-items: center; gap: 6px; font-size: 15px; letter-spacing: 1px; color: var(--c858585)"><svg width="11" height="11" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M6 1h1v2H6zM5 3h1v1H5zM4 4h1v1H4zM3 5h1v1H3zM1 3h1v1H1zM2 4h1v1H2z" fill="currentColor"></path></svg>SEMINAR</span>
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">Cybersecurity Trends and Issues, and Machine Learning in Predictive Data Analytics</h3>
+<span style="display: flex; align-items: center; gap: 6px; font-size: 13px; letter-spacing: 1px; color: var(--c858585)"><svg width="11" height="11" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M6 1h1v2H6zM5 3h1v1H5zM4 4h1v1H4zM3 5h1v1H3zM1 3h1v1H1zM2 4h1v1H2z" fill="currentColor"></path></svg>SEMINAR</span>
+<h3 style="margin: 0; font-size: 19px; font-weight: 400; color: var(--ce5e5e5)">Cybersecurity Trends and Issues, and Machine Learning in Predictive Data Analytics</h3>
 <p style="margin: 0; color: var(--ca3a3a3)">OLFU College of Computer Studies · Nov 2025</p>
 </div>
 </article>
@@ -131,8 +134,8 @@ button{font:inherit}
 <article class="ccard" style="display: flex; flex-direction: column; background: var(--c121212)">
 <div role="img" aria-label="Certificate image placeholder" style="position: relative; aspect-ratio: 4 / 3; background: var(--c1a1a1a); display: flex; align-items: center; justify-content: center; color: var(--c5e5e5e); font-family: 'Press Start 2P', monospace; font-size: 9px"><span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span><span style="position: absolute; top: 18px; right: 18px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; background: var(--c0a0a0a); color: var(--ccfcfcf)"><svg width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M3 0h2v4H3zM1 3h1v1h4V3h1v2H5v1H4v1h2v1H2V7h2V6H3V5H1z" fill="currentColor"></path></svg></span>[CERTIFICATE]</div>
 <div style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px">
-<span style="display: flex; align-items: center; gap: 6px; font-size: 15px; letter-spacing: 1px; color: var(--c858585)"><svg width="11" height="11" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M6 1h1v2H6zM5 3h1v1H5zM4 4h1v1H4zM3 5h1v1H3zM1 3h1v1H1zM2 4h1v1H2z" fill="currentColor"></path></svg>SEMINAR</span>
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">Revolution of Generative A.I. &amp; Evolution of Multimedia Arts</h3>
+<span style="display: flex; align-items: center; gap: 6px; font-size: 13px; letter-spacing: 1px; color: var(--c858585)"><svg width="11" height="11" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M6 1h1v2H6zM5 3h1v1H5zM4 4h1v1H4zM3 5h1v1H3zM1 3h1v1H1zM2 4h1v1H2z" fill="currentColor"></path></svg>SEMINAR</span>
+<h3 style="margin: 0; font-size: 19px; font-weight: 400; color: var(--ce5e5e5)">Revolution of Generative A.I. &amp; Evolution of Multimedia Arts</h3>
 <p style="margin: 0; color: var(--ca3a3a3)">Seminar · Oct 2024</p>
 </div>
 </article>
@@ -140,8 +143,8 @@ button{font:inherit}
 <article class="ccard" style="display: flex; flex-direction: column; background: var(--c121212)">
 <img src="assets/img/seminar-techinsights.jpg" alt="Tech-Insights: Unveiling Top Tech Stacks in 2023 and Key Roles in IT and Industries Post Graduation certificate" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: var(--c1a1a1a)">
 <div style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px">
-<span style="display: flex; align-items: center; gap: 6px; font-size: 15px; letter-spacing: 1px; color: var(--c858585)"><svg width="11" height="11" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M6 1h1v2H6zM5 3h1v1H5zM4 4h1v1H4zM3 5h1v1H3zM1 3h1v1H1zM2 4h1v1H2z" fill="currentColor"></path></svg>SEMINAR</span>
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">Tech-Insights: Unveiling Top Tech Stacks in 2023 and Key Roles in IT and Industries Post Graduation</h3>
+<span style="display: flex; align-items: center; gap: 6px; font-size: 13px; letter-spacing: 1px; color: var(--c858585)"><svg width="11" height="11" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M6 1h1v2H6zM5 3h1v1H5zM4 4h1v1H4zM3 5h1v1H3zM1 3h1v1H1zM2 4h1v1H2z" fill="currentColor"></path></svg>SEMINAR</span>
+<h3 style="margin: 0; font-size: 19px; font-weight: 400; color: var(--ce5e5e5)">Tech-Insights: Unveiling Top Tech Stacks in 2023 and Key Roles in IT and Industries Post Graduation</h3>
 <p style="margin: 0; color: var(--ca3a3a3)">OLFU College of Computer Studies · Dec 2023</p>
 </div>
 </article>
