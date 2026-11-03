@@ -48,6 +48,11 @@ main{padding-top:60px !important}
 .ttl-px{font-size:clamp(15px,4.6vw,24px) !important;overflow-wrap:anywhere}
 
 main>div>*{padding-left:0 !important;padding-right:0 !important}
+.phead{padding:40px 0 28px !important;border-bottom:1px solid var(--c262626)}
+.phead h1{font-size:26px !important}
+.shead{font-size:16px;color:var(--c858585)}
+.slink{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--c858585) !important}
+.slink:hover{color:var(--cd0d0d0) !important}
 [hidden]{display:none !important}
 button{font:inherit}
 :focus-visible{outline:2px solid var(--cd0d0d0);outline-offset:2px}
@@ -103,14 +108,14 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </div>
 </aside>
 <main style="flex: 999 1 560px; min-width: 0; padding: 40px 32px 64px; box-sizing: border-box; display: flex; justify-content: center">
-<div style="width: 100%; max-width: 660px; display: flex; flex-direction: column; gap: 20px">
-<section style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<div style="width: 100%; max-width: 660px; display: flex; flex-direction: column; gap: 40px">
+<section class="phead" style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
 <a href="index.html" style="color: var(--c858585); font-size: 14px">← back home</a>
 <h1 class="ttl-px" style="margin: 0; font-family: 'Press Start 2P', monospace; font-size: 20px; line-height: 1.5; font-weight: 400">Seminars</h1>
 <p style="margin: 0; font-size: 17px; color: var(--ca3a3a3)">Seminars and talks I've attended to keep learning.</p>
 </section>
 <section id="seminars" style="display: flex; flex-direction: column; gap: 20px; margin-top: 0">
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 32px; padding: 0 22px">
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 16px; padding: 0 22px">
 
 <article class="ccard" style="display: flex; flex-direction: column; background: var(--c121212)">
 <img src="assets/img/seminar-pcs.jpg" alt="Beyond the Air Gap: Navigating Data Privacy and GRC in Operational Technology certificate" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: var(--c1a1a1a)">

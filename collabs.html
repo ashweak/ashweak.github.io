@@ -44,6 +44,11 @@ button{cursor:pointer}
 .ttl-px{font-size:clamp(15px,4.6vw,24px) !important;overflow-wrap:anywhere}
 
 main>div>*{padding-left:0 !important;padding-right:0 !important}
+.phead{padding:40px 0 28px !important;border-bottom:1px solid var(--c262626)}
+.phead h1{font-size:26px !important}
+.shead{font-size:16px;color:var(--c858585)}
+.slink{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--c858585) !important}
+.slink:hover{color:var(--cd0d0d0) !important}
 [hidden]{display:none !important}
 button{font:inherit}
 :focus-visible{outline:2px solid var(--cd0d0d0);outline-offset:2px}
@@ -99,8 +104,8 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </div>
 </aside>
 <main style="flex: 999 1 560px; min-width: 0; padding: 40px 32px 64px; box-sizing: border-box; display: flex; justify-content: center">
-<div style="width: 100%; max-width: 660px; display: flex; flex-direction: column; gap: 20px">
-<section style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<div style="width: 100%; max-width: 660px; display: flex; flex-direction: column; gap: 40px">
+<section class="phead" style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
 <a href="index.html" style="color: var(--c858585); font-size: 14px">← back home</a>
 <h1 class="ttl-px" style="margin: 0; font-family: 'Press Start 2P', monospace; font-size: 20px; line-height: 1.5; font-weight: 400">Collabs</h1>
 <p style="margin: 0; font-size: 17px; color: var(--ca3a3a3)">Got a project, a school build or an idea? Let's make it together.</p>
@@ -113,10 +118,9 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 <span>web apps</span><span>·</span><span>android &amp; iot</span><span>·</span><span>small business sites</span><span>·</span><span>school projects</span>
 </div>
 </section>
-<div style="height: 16px"></div>
 <section id="inquiry" style="display: flex; flex-direction: column; gap: 20px">
-<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 22px 0"><h2 style="margin: 0; font-size: 15px; font-weight: 400; color: var(--c858585)">inquiry form</h2><hr style="border: 0; height: 1px; background: var(--c262626); margin: 0"></div>
-<div style="padding: 0 22px; display: flex; flex-wrap: wrap; gap: 40px">
+<h2 class="shead" style="margin: 0; font-weight: 400">01 — inquiry form</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
 <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 10px">
 <p style="margin: 0; font-size: 18px; color: var(--ccfcfcf)">Tell me about your project.</p>
 <p style="margin: 0; color: var(--c858585)">I usually reply within [1–2 days].</p>
