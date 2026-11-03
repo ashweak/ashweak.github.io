@@ -42,13 +42,26 @@ main{padding-top:60px !important}
 @media (max-width: 760px){main{padding:64px 16px 40px !important}main section,main>div>div{padding-left:0 !important;padding-right:0 !important}}
 .ttl-px{font-size:clamp(15px,4.6vw,24px) !important;overflow-wrap:anywhere}
 
-.bento{grid-template-columns:minmax(0,1fr) !important;gap:44px !important}
+.bento{grid-template-columns:minmax(0,1fr) !important;gap:56px !important}
 .bento>*{grid-column:1 / -1 !important;grid-row:auto !important}
-.bento>section{padding:0 22px !important}
-#about{gap:28px !important;align-items:center !important}
-#about img{width:150px !important;height:150px !important}
-#status>div:nth-child(2){padding-left:0 !important}
-@media (max-width: 760px){.bento>section{padding:0 !important}}
+.bento>section{padding:0 !important}
+#about{gap:40px !important;align-items:center !important;flex-wrap:nowrap !important;padding-top:40px !important}
+#about img{width:250px !important;height:250px !important}
+#about h1{font-size:26px !important}
+.stats{border-top:1px solid var(--c262626);display:flex;flex-direction:column;margin-top:-12px}
+.srow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--c262626)}
+.scell{display:flex;flex-direction:column;gap:4px;padding:18px 16px;border-left:1px solid var(--c262626);color:var(--ce0e0e0)}
+.scell:first-child{border-left:0;padding-left:0}
+.scell b{font-weight:400;font-size:17px;color:var(--ce5e5e5)}
+.scell small{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--c858585)}
+.snum{font-size:26px;line-height:1;color:var(--ce5e5e5)}
+.snum i{font-style:normal;font-size:12px;color:var(--c5e5e5e);margin-left:4px;vertical-align:top}
+a.scell:hover .snum{color:var(--cffffff)}
+#stack>div:nth-child(2){grid-template-columns:minmax(0,1fr) !important;gap:10px !important}
+.shead{font-size:16px;color:var(--c858585)}
+.slink{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--c858585) !important}
+.slink:hover{color:var(--cd0d0d0) !important}
+@media (max-width: 700px){#about{flex-wrap:wrap !important}#about img{width:180px !important;height:180px !important}.scell{padding:14px 10px}.scell b{font-size:15px}.scell small{font-size:10px;letter-spacing:.06em}}
 [hidden]{display:none !important}
 button{font:inherit}
 :focus-visible{outline:2px solid var(--cd0d0d0);outline-offset:2px}
@@ -105,7 +118,7 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </div>
 </aside>
 <main style="flex: 999 1 560px; min-width: 0; padding: 40px 32px 64px; box-sizing: border-box; display: flex; justify-content: center">
-<div style="width: 100%; max-width: 900px; display: flex; flex-direction: column; gap: 20px">
+<div style="width: 100%; max-width: 660px; display: flex; flex-direction: column; gap: 20px">
 
 
 <div class="bento" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
@@ -120,14 +133,21 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </div>
 </section>
 
-<section id="status" style="grid-column: 1 / 2; grid-row: 2 / 3; padding: 22px; display: flex; flex-direction: column; gap: 10px">
-<div style="color: var(--c858585); font-size: 14px">status</div>
-<div style="font-size: 22px; line-height: 1.1; color: var(--ce0e0e0)"><span class="blink" style="color: var(--ccfcfcf)">●</span> Open to work</div>
-<div style="color: var(--ca3a3a3)">Internships, junior roles and freelance projects</div>
+<section id="stats" class="stats">
+<div class="srow">
+<div class="scell"><b>OLFU</b><small>BSIT · 4th year</small></div>
+<div class="scell"><b>Freelance</b><small>Web developer</small></div>
+<div class="scell"><b><span class="blink">●</span> Open to work</b><small>Internships · junior · freelance</small></div>
+</div>
+<div class="srow">
+<a class="scell" href="projects.html"><span class="snum">4<i>↗</i></span><small>Projects</small></a>
+<a class="scell" href="certifications.html"><span class="snum">8<i>↗</i></span><small>Certifications</small></a>
+<a class="scell" href="seminars.html"><span class="snum">4<i>↗</i></span><small>Seminars</small></a>
+</div>
 </section>
 
 <section id="stack" style="grid-column: 2 / 5; grid-row: 2 / 3; padding: 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px">
-<div style="align-self: stretch; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; color: var(--c858585); font-size: 14px"><span>stack</span><a href="stack.html" style="color: var(--c858585)">full stack →</a></div>
+<div style="align-self: stretch; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; color: var(--c858585); font-size: 14px"><span class="shead">01 — stack</span><a class="slink" href="stack.html">full stack →</a></div>
 <div style="align-self: stretch; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 14px 32px">
 
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
@@ -159,7 +179,7 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </section>
 
 <section id="projects" style="grid-column: 1 / 3; grid-row: 3 / 5; padding: 22px 26px; display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span>projects</span><a href="projects.html" style="color: var(--c858585)">all projects →</a></div>
+<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span class="shead">02 — projects</span><a class="slink" href="projects.html">all projects →</a></div>
 
 <article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
 <div role="img" aria-label="Screenshot placeholder" style="flex: 0 0 auto; width: 110px; height: 72px; background: var(--c262626)"></div>
@@ -200,7 +220,7 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </section>
 
 <section id="experience" style="grid-column: 3 / 5; grid-row: 3 / 4; padding: 22px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span>experience</span><a href="experience.html" style="color: var(--c858585)">full journey →</a></div>
+<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span class="shead">03 — experience</span><a class="slink" href="experience.html">full journey →</a></div>
 
 <div style="display: flex; gap: 16px">
 <div style="width: 108px; flex: 0 0 auto; color: var(--c858585)">2026 – present</div>
@@ -225,7 +245,7 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </section>
 
 <section id="certifications" style="grid-column: 3 / 5; grid-row: 4 / 5; padding: 22px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span>certifications</span><a href="certifications.html" style="color: var(--c858585)">all →</a></div>
+<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span class="shead">04 — certifications</span><a class="slink" href="certifications.html">all →</a></div>
 
 <div style="display: flex; justify-content: space-between; gap: 8px"><span>CEFR English Language Proficiency Certificate</span><a href="certifications.html" style="color: var(--c858585)">verify ↗</a></div>
 
@@ -238,7 +258,7 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </section>
 
 <section id="seminars" style="grid-column: 1 / 5; grid-row: 5 / 6; padding: 22px 26px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span>seminars</span><a href="seminars.html" style="color: var(--c858585)">all →</a></div>
+<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span class="shead">05 — seminars</span><a class="slink" href="seminars.html">all →</a></div>
 
 <div style="display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--c2e2e2e)"><span>Beyond the Air Gap <span style="color: var(--c858585)">· PCS via JPCS</span></span><span style="color: var(--c858585)">Jan 2026</span></div>
 
