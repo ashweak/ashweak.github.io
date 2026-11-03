@@ -44,6 +44,22 @@ button{cursor:pointer}
 [hidden]{display:none !important}
 button{font:inherit}
 :focus-visible{outline:2px solid var(--cd0d0d0);outline-offset:2px}
+.gwrap{display:flex;flex-direction:column;gap:44px;padding:0 22px}
+.gsec{display:flex;flex-direction:column;gap:16px}
+.glabel{margin:0;font-size:15px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--c858585)}
+.ggrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.gcard2{display:flex;flex-direction:column;background:var(--c121212);border:1px solid var(--c1f1f1f);border-radius:8px;overflow:hidden;transition:border-color .2s ease,box-shadow .3s ease}
+.gcard2:hover{border-color:var(--c3a3a3a);box-shadow:0 0 28px var(--glow1)}
+.gimg{padding:22px 22px 24px}
+.gimg img{display:block;width:100%;aspect-ratio:1;object-fit:contain;box-sizing:border-box;background:#fff;border-radius:2px}
+.tk.light .gimg img{box-shadow:inset 0 0 0 1px #e6e6e4}
+.gfoot{border-top:1px solid var(--c1f1f1f);padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px}
+.gname{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.gname h3{margin:0;font-size:19px;font-weight:400;color:var(--ce5e5e5)}
+.gname span{font-size:14px;color:var(--c5e5e5e)}
+.gfoot p{margin:0;font-size:15px;color:var(--c858585)}
+@media (max-width:1180px){.ggrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.ggrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>

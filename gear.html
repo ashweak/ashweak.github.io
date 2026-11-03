@@ -44,6 +44,22 @@ main{padding-top:60px !important}
 [hidden]{display:none !important}
 button{font:inherit}
 :focus-visible{outline:2px solid var(--cd0d0d0);outline-offset:2px}
+.gwrap{display:flex;flex-direction:column;gap:44px;padding:0 22px}
+.gsec{display:flex;flex-direction:column;gap:16px}
+.glabel{margin:0;font-size:15px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--c858585)}
+.ggrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.gcard2{display:flex;flex-direction:column;background:var(--c121212);border:1px solid var(--c1f1f1f);border-radius:8px;overflow:hidden;transition:border-color .2s ease,box-shadow .3s ease}
+.gcard2:hover{border-color:var(--c3a3a3a);box-shadow:0 0 28px var(--glow1)}
+.gimg{padding:22px 22px 24px}
+.gimg img{display:block;width:100%;aspect-ratio:1;object-fit:contain;box-sizing:border-box;background:#fff;border-radius:2px}
+.tk.light .gimg img{box-shadow:inset 0 0 0 1px #e6e6e4}
+.gfoot{border-top:1px solid var(--c1f1f1f);padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px}
+.gname{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.gname h3{margin:0;font-size:19px;font-weight:400;color:var(--ce5e5e5)}
+.gname span{font-size:14px;color:var(--c5e5e5e)}
+.gfoot p{margin:0;font-size:15px;color:var(--c858585)}
+@media (max-width:1180px){.ggrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.ggrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -79,93 +95,84 @@ button{font:inherit}
 </div>
 </aside>
 <main style="flex: 999 1 560px; min-width: 0; padding: 40px 32px 64px; box-sizing: border-box; display: flex; justify-content: center">
-<div style="width: 100%; max-width: 1080px; display: flex; flex-direction: column; gap: 20px">
+<div style="width: 100%; max-width: 900px; display: flex; flex-direction: column; gap: 20px">
 <section style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
 <a href="index.html" style="color: var(--c858585); font-size: 16px">← back home</a>
 <h1 class="ttl-px" style="margin: 0; font-family: 'Press Start 2P', monospace; font-size: 24px; line-height: 1.5; font-weight: 400">Gear</h1>
 <p style="margin: 0; font-size: 20px; color: var(--ca3a3a3)">The setup and tools I use to build every day.</p>
 </section>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 32px; padding: 0 22px">
+<div class="gwrap">
 
-<article class="gcard" style="display: flex; flex-direction: column; gap: 16px; padding: 14px 14px 22px; background: var(--c121212)">
-<img src="assets/img/gear-chair.webp" alt="GAMEFORGE Classic Series" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 0; box-sizing: border-box; border-radius: 4px; background: #ffffff">
-<div style="padding: 0 6px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px">
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">GAMEFORGE Classic Series</h3>
-<p style="margin: 0; font-size: 16px; color: var(--c858585)">Lumbar pillow - Neck pillow - Adjustable armrests</p>
-</div>
+<section class="gsec">
+<h2 class="glabel">Desk setup</h2>
+<div class="ggrid">
+
+<article class="gcard2">
+<div class="gimg"><img src="assets/img/gear-chair.webp" alt="GAMEFORGE Classic Series" loading="lazy" style="padding: 0"></div>
+<div class="gfoot"><div class="gname"><h3>GAMEFORGE Classic Series</h3></div><p>Lumbar pillow - Neck pillow - Adjustable armrests</p></div>
 </article>
 
-<article class="gcard" style="display: flex; flex-direction: column; gap: 16px; padding: 14px 14px 22px; background: var(--c121212)">
-<img src="assets/img/gear-monitor.png" alt="MSI MAG 255F E20" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 0; box-sizing: border-box; border-radius: 4px; background: #ffffff">
-<div style="padding: 0 6px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px">
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">MSI MAG 255F E20</h3>
-<p style="margin: 0; font-size: 16px; color: var(--c858585)">24.5&#34; - 1920×1080 FHD - Rapid IPS - 200Hz</p>
-</div>
+<article class="gcard2">
+<div class="gimg"><img src="assets/img/gear-monitor.png" alt="MSI MAG 255F E20" loading="lazy" style="padding: 0"></div>
+<div class="gfoot"><div class="gname"><h3>MSI MAG 255F E20</h3></div><p>24.5&#34; - 1920×1080 FHD - Rapid IPS - 200Hz</p></div>
 </article>
 
-<article class="gcard" style="display: flex; flex-direction: column; gap: 16px; padding: 14px 14px 22px; background: var(--c121212)">
-<img src="assets/img/gear-arm.png" alt="Monitor arm mount" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 6% 12%; box-sizing: border-box; border-radius: 4px; background: #ffffff">
-<div style="padding: 0 6px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px">
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">Monitor arm mount</h3>
-<p style="margin: 0; font-size: 16px; color: var(--c858585)">Gas spring - 720° rotation - 13–34&#34; - VESA</p>
-</div>
+<article class="gcard2">
+<div class="gimg"><img src="assets/img/gear-arm.png" alt="Monitor arm mount" loading="lazy" style="padding: 6% 12%"></div>
+<div class="gfoot"><div class="gname"><h3>Monitor arm mount</h3></div><p>Gas spring - 720° rotation - 13–34&#34; - VESA</p></div>
 </article>
 
-<article class="gcard" style="display: flex; flex-direction: column; gap: 16px; padding: 14px 14px 22px; background: var(--c121212)">
-<img src="assets/img/gear-desk.png" alt="Computer desk" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 9% 12%; box-sizing: border-box; border-radius: 4px; background: #ffffff">
-<div style="padding: 0 6px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px">
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">Computer desk</h3>
-<p style="margin: 0; font-size: 16px; color: var(--c858585)">Wood top - Steel frame</p>
-</div>
+<article class="gcard2">
+<div class="gimg"><img src="assets/img/gear-desk.png" alt="Computer desk" loading="lazy" style="padding: 9% 12%"></div>
+<div class="gfoot"><div class="gname"><h3>Computer desk</h3></div><p>Wood top - Steel frame</p></div>
 </article>
 
-<article class="gcard" style="display: flex; flex-direction: column; gap: 16px; padding: 14px 14px 22px; background: var(--c121212)">
-<img src="assets/img/gear-keyboard.png" alt="ZiFriend KA646" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 6% 8%; box-sizing: border-box; border-radius: 4px; background: #ffffff">
-<div style="padding: 0 6px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px">
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">ZiFriend KA646</h3>
-<p style="margin: 0; font-size: 16px; color: var(--c858585)">60% layout - Mechanical - Black</p>
-</div>
+<article class="gcard2">
+<div class="gimg"><img src="assets/img/gear-keyboard.png" alt="ZiFriend KA646" loading="lazy" style="padding: 6% 8%"></div>
+<div class="gfoot"><div class="gname"><h3>ZiFriend KA646</h3></div><p>60% layout - Mechanical - Black</p></div>
 </article>
 
-<article class="gcard" style="display: flex; flex-direction: column; gap: 16px; padding: 14px 14px 22px; background: var(--c121212)">
-<img src="assets/img/gear-mouse.png" alt="INPLAY M066" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 6% 12%; box-sizing: border-box; border-radius: 4px; background: #ffffff">
-<div style="padding: 0 6px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px">
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">INPLAY M066</h3>
-<p style="margin: 0; font-size: 16px; color: var(--c858585)">Wired USB - Lightweight - RGB</p>
-</div>
+<article class="gcard2">
+<div class="gimg"><img src="assets/img/gear-mouse.png" alt="INPLAY M066" loading="lazy" style="padding: 6% 12%"></div>
+<div class="gfoot"><div class="gname"><h3>INPLAY M066</h3></div><p>Wired USB - Lightweight - RGB</p></div>
 </article>
 
-<article class="gcard" style="display: flex; flex-direction: column; gap: 16px; padding: 14px 14px 22px; background: var(--c121212)">
-<img src="assets/img/gear-qkz.png" alt="QKZ AK6 Pro" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 9% 12%; box-sizing: border-box; border-radius: 4px; background: #ffffff">
-<div style="padding: 0 6px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px">
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">QKZ AK6 Pro</h3>
-<p style="margin: 0; font-size: 16px; color: var(--c858585)">Dynamic driver - Mic - Detachable cable</p>
 </div>
+</section>
+
+<section class="gsec">
+<h2 class="glabel">Audio</h2>
+<div class="ggrid">
+
+<article class="gcard2">
+<div class="gimg"><img src="assets/img/gear-qkz.png" alt="QKZ AK6 Pro" loading="lazy" style="padding: 9% 12%"></div>
+<div class="gfoot"><div class="gname"><h3>QKZ AK6 Pro</h3></div><p>Dynamic driver - Mic - Detachable cable</p></div>
 </article>
 
-<article class="gcard" style="display: flex; flex-direction: column; gap: 16px; padding: 14px 14px 22px; background: var(--c121212)">
-<img src="assets/img/gear-anker.jpg" alt="Anker Soundcore R50i" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 6% 12%; box-sizing: border-box; border-radius: 4px; background: #ffffff">
-<div style="padding: 0 6px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px">
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">Anker Soundcore R50i</h3>
-<p style="margin: 0; font-size: 16px; color: var(--c858585)">Bluetooth 5.3 - 30H playtime - Water-resistant</p>
-</div>
+<article class="gcard2">
+<div class="gimg"><img src="assets/img/gear-anker.jpg" alt="Anker Soundcore R50i" loading="lazy" style="padding: 6% 12%"></div>
+<div class="gfoot"><div class="gname"><h3>Anker Soundcore R50i</h3></div><p>Bluetooth 5.3 - 30H playtime - Water-resistant</p></div>
 </article>
 
-<article class="gcard" style="display: flex; flex-direction: column; gap: 16px; padding: 14px 14px 22px; background: var(--c121212)">
-<img src="assets/img/gear-speaker.png" alt="GOOJODOQ Sound Bar" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 9% 12%; box-sizing: border-box; border-radius: 4px; background: #ffffff">
-<div style="padding: 0 6px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px">
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">GOOJODOQ Sound Bar</h3>
-<p style="margin: 0; font-size: 16px; color: var(--c858585)">Bluetooth - USB - Wood finish</p>
-</div>
+<article class="gcard2">
+<div class="gimg"><img src="assets/img/gear-speaker.png" alt="GOOJODOQ Sound Bar" loading="lazy" style="padding: 9% 12%"></div>
+<div class="gfoot"><div class="gname"><h3>GOOJODOQ Sound Bar</h3></div><p>Bluetooth - USB - Wood finish</p></div>
 </article>
 
-<article class="gcard" style="display: flex; flex-direction: column; gap: 16px; padding: 14px 14px 22px; background: var(--c121212)">
-<img src="assets/img/gear-phone.jpg" alt="iPhone 16 Pro" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 9% 12%; box-sizing: border-box; border-radius: 4px; background: #ffffff">
-<div style="padding: 0 6px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px">
-<h3 style="margin: 0; font-size: 22px; font-weight: 400; color: var(--ce5e5e5)">iPhone 16 Pro</h3>
-<p style="margin: 0; font-size: 16px; color: var(--c858585)">256GB</p>
 </div>
+</section>
+
+<section class="gsec">
+<h2 class="glabel">Everyday carry</h2>
+<div class="ggrid">
+
+<article class="gcard2">
+<div class="gimg"><img src="assets/img/gear-phone.jpg" alt="iPhone 16 Pro" loading="lazy" style="padding: 9% 12%"></div>
+<div class="gfoot"><div class="gname"><h3>iPhone 16 Pro</h3></div><p>256GB</p></div>
 </article>
+
+</div>
+</section>
 
 </div>
 </div>
