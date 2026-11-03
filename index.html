@@ -42,6 +42,13 @@ main{padding-top:60px !important}
 @media (max-width: 760px){main{padding:64px 16px 40px !important}main section,main>div>div{padding-left:0 !important;padding-right:0 !important}}
 .ttl-px{font-size:clamp(15px,4.6vw,24px) !important;overflow-wrap:anywhere}
 
+.bento{grid-template-columns:minmax(0,1fr) !important;gap:44px !important}
+.bento>*{grid-column:1 / -1 !important;grid-row:auto !important}
+.bento>section{padding:0 22px !important}
+#about{gap:28px !important;align-items:center !important}
+#about img{width:150px !important;height:150px !important}
+#status>div:nth-child(2){padding-left:0 !important}
+@media (max-width: 760px){.bento>section{padding:0 !important}}
 [hidden]{display:none !important}
 button{font:inherit}
 :focus-visible{outline:2px solid var(--cd0d0d0);outline-offset:2px}
