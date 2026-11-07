@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projects — Lance Agua</title>
-<meta name="description" content="Web, Android and IoT projects built by Lance Agua.">
+<meta name="description" content="AI, web, Android and IoT projects built by Lance Agua.">
 <meta property="og:title" content="Projects — Lance Agua">
-<meta property="og:description" content="Web, Android and IoT projects built by Lance Agua.">
+<meta property="og:description" content="AI, web, Android and IoT projects built by Lance Agua.">
 <meta property="og:image" content="assets/img/portrait-light.png">
 <link rel="icon" href="assets/favicon.ico" sizes="any">
 <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
@@ -121,12 +121,23 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 <section class="phead" style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
 <a href="index.html" style="color: var(--c858585); font-size: 14px">← back home</a>
 <h1 class="ttl-px" style="margin: 0; font-family: 'Press Start 2P', monospace; font-size: 20px; line-height: 1.5; font-weight: 400">Projects</h1>
-<p style="margin: 0; font-size: 17px; color: var(--ca3a3a3)">Things I've built, from web systems to Android apps that talk to hardware.</p>
+<p style="margin: 0; font-size: 17px; color: var(--ca3a3a3)">Things I've built, from AI tools and web systems to Android apps that talk to hardware.</p>
 </section>
 <div role="tablist" aria-label="Filter projects" style="display: flex; flex-wrap: wrap; gap: 8px; padding: 0 22px">
-<button role="tab" aria-selected="true" data-action="filter" data-f="all" style="min-height: 36px; padding: 0 14px; border: 0; border-radius: 3px; font-family: 'VT323', monospace; font-size: 15px; background: var(--ce0e0e0); color: var(--c0a0a0a)">All</button><button role="tab" aria-selected="false" data-action="filter" data-f="web" style="min-height: 36px; padding: 0 14px; border: 0; border-radius: 3px; font-family: 'VT323', monospace; font-size: 15px; background: var(--c1a1a1a); color: var(--ca3a3a3)">Web</button><button role="tab" aria-selected="false" data-action="filter" data-f="mobile" style="min-height: 36px; padding: 0 14px; border: 0; border-radius: 3px; font-family: 'VT323', monospace; font-size: 15px; background: var(--c1a1a1a); color: var(--ca3a3a3)">Mobile &amp; IoT</button>
+<button role="tab" aria-selected="true" data-action="filter" data-f="all" style="min-height: 36px; padding: 0 14px; border: 0; border-radius: 3px; font-family: 'VT323', monospace; font-size: 15px; background: var(--ce0e0e0); color: var(--c0a0a0a)">All</button><button role="tab" aria-selected="false" data-action="filter" data-f="web" style="min-height: 36px; padding: 0 14px; border: 0; border-radius: 3px; font-family: 'VT323', monospace; font-size: 15px; background: var(--c1a1a1a); color: var(--ca3a3a3)">Web</button><button role="tab" aria-selected="false" data-action="filter" data-f="ai" style="min-height: 36px; padding: 0 14px; border: 0; border-radius: 3px; font-family: 'VT323', monospace; font-size: 15px; background: var(--c1a1a1a); color: var(--ca3a3a3)">AI</button><button role="tab" aria-selected="false" data-action="filter" data-f="mobile" style="min-height: 36px; padding: 0 14px; border: 0; border-radius: 3px; font-family: 'VT323', monospace; font-size: 15px; background: var(--c1a1a1a); color: var(--ca3a3a3)">Mobile &amp; IoT</button>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 16px; padding: 0 22px">
+
+<article class="card" data-cat="ai" style="display: flex; flex-direction: column; background: var(--c121212)">
+<img src="assets/img/project-resumatch.jpg" alt="ResuMatch AI screenshot" loading="lazy" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top">
+<div style="padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px; letter-spacing: 1px; color: var(--c858585)"><span>AI · WEB APP</span><span>2026</span></div>
+<h3 class="pname" style="margin: 0; font-size: 20px; font-weight: 400; color: var(--ce5e5e5)">ResuMatch AI</h3>
+<p style="margin: 0; color: var(--ca3a3a3)">AI resume and job matcher. Ranks saved jobs by similarity using embeddings, then scores a resume like a recruiter on 6 weighted areas, with missing skills, prioritized fixes and an ATS checklist. Swappable AI provider, caching, rate limiting and automated tests.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 8px; border-radius: 3px; font-size: 14px; color: var(--ccfcfcf)">Python</span><span style="background: var(--c262626); padding: 0 8px; border-radius: 3px; font-size: 14px; color: var(--ccfcfcf)">FastAPI</span><span style="background: var(--c262626); padding: 0 8px; border-radius: 3px; font-size: 14px; color: var(--ccfcfcf)">Gemini AI</span><span style="background: var(--c262626); padding: 0 8px; border-radius: 3px; font-size: 14px; color: var(--ccfcfcf)">SQLite</span><span style="background: var(--c262626); padding: 0 8px; border-radius: 3px; font-size: 14px; color: var(--ccfcfcf)">Docker</span></div>
+<div style="display: flex; gap: 18px; padding-top: 6px; font-size: 14px"><a href="https://github.com/ashweak/ai-resume-matcher" target="_blank" rel="noopener">github ↗</a></div>
+</div>
+</article>
 
 <article class="card" data-cat="mobile" style="display: flex; flex-direction: column; background: var(--c121212)">
 <div role="img" aria-label="Sand Siever Control screenshot placeholder" style="aspect-ratio: 16 / 10; background: var(--c1a1a1a); display: flex; align-items: center; justify-content: center; color: var(--c5e5e5e); font-family: 'Press Start 2P', monospace; font-size: 9px">[SCREENSHOT]</div>
