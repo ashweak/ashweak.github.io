@@ -53,8 +53,9 @@ jobs:
         continue-on-error: true
         working-directory: bp/backend
         run: |
+          set -o pipefail
           python -m app.ingestion.dpwh_api --mirror data/raw/flood_control.csv \
-            --mapping data/mappings/hf_flood_control_mirror.json --out data/raw/merged.csv
+            --mapping data/mappings/hf_flood_control_mirror.json --out data/raw/merged.csv 2>&1 | tee /tmp/fetch.log
 
       - name: Rebuild flags and snapshot
         if: steps.fetch.outcome == 'success'
@@ -68,6 +69,20 @@ jobs:
         run: |
           cp bp/frontend/index.html bp/frontend/app.js bp/frontend/styles.css bp/frontend/logo.svg bantaypondo/
           cp -r bp/frontend/vendor bantaypondo/
+
+      - name: Record update status
+        env:
+          OUTCOME: ${{ steps.fetch.outcome }}
+        run: |
+          python3 - <<'PY'
+          import json, os, datetime
+          log = open("/tmp/fetch.log").read() if os.path.exists("/tmp/fetch.log") else ""
+          json.dump({"checked_at": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z",
+                     "dpwh_api": os.environ["OUTCOME"],
+                     "message": log.strip().splitlines()[-1][:300] if log.strip() else ""},
+                    open("bantaypondo/data/update-status.json", "w"), indent=1)
+          PY
+          cat bantaypondo/data/update-status.json
 
       - name: Commit if anything changed
         run: |
