@@ -9,7 +9,7 @@ on:
   workflow_dispatch: {}      # "Run workflow" button in the Actions tab
   push:
     branches: [main]
-    paths: [".github/workflows/bantaypondo-weekly.yml"]
+    paths: [".github/workflows/bantaypondo-weekly.yml", "bantaypondo-data/latest.csv"]
 
 permissions:
   contents: write
@@ -24,6 +24,8 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # needed to read the upload date of bantaypondo-data/latest.csv
 
       - name: Get BantayPondo code (public repo)
         uses: actions/checkout@v4
@@ -65,6 +67,23 @@ jobs:
           python -c "from app.db import SessionLocal; from app.rules.red_flags import compute_flags; print('flags', compute_flags(SessionLocal()))"
           DATA_AS_OF=$(date -u +%F) python -m app.snapshot ../../bantaypondo/data/snapshot.json
 
+      - name: Rebuild from uploaded BetterGov export (if DPWH API failed and the upload is new)
+        id: upload
+        if: steps.fetch.outcome != 'success' && hashFiles('bantaypondo-data/latest.csv') != ''
+        run: |
+          NEW=$(sha256sum bantaypondo-data/latest.csv | cut -c1-16)
+          OLD=$(python3 -c "import json;print(json.load(open('bantaypondo/data/update-status.json')).get('upload_sha',''))" 2>/dev/null || true)
+          echo "sha=$NEW" >> "$GITHUB_OUTPUT"
+          if [ "$NEW" = "$OLD" ]; then echo "Upload unchanged, keeping snapshot."; echo "used=no" >> "$GITHUB_OUTPUT"; exit 0; fi
+          ASOF=$(git log -1 --format=%cs -- bantaypondo-data/latest.csv)
+          cd bp/backend
+          rm -f bantaypondo.db
+          python -m app.ingestion.importer projects ../../bantaypondo-data/latest.csv --source bettergov_export \
+            --mapping data/mappings/hf_flood_control_mirror.json --file-url "https://bettergov.ph/flood-control-projects"
+          python -c "from app.db import SessionLocal; from app.rules.red_flags import compute_flags; print('flags', compute_flags(SessionLocal()))"
+          DATA_AS_OF=$ASOF python -m app.snapshot ../../bantaypondo/data/snapshot.json
+          echo "used=yes" >> "$GITHUB_OUTPUT"
+
       - name: Sync site code from the BantayPondo repo
         run: |
           cp bp/frontend/index.html bp/frontend/app.js bp/frontend/styles.css bp/frontend/logo.svg bantaypondo/
@@ -73,14 +92,20 @@ jobs:
       - name: Record update status
         env:
           OUTCOME: ${{ steps.fetch.outcome }}
+          UPLOAD_SHA: ${{ steps.upload.outputs.sha }}
+          UPLOAD_USED: ${{ steps.upload.outputs.used }}
         run: |
           python3 - <<'PY'
           import json, os, datetime
+          path = "bantaypondo/data/update-status.json"
+          old = json.load(open(path)) if os.path.exists(path) else {}
           log = open("/tmp/fetch.log").read() if os.path.exists("/tmp/fetch.log") else ""
-          json.dump({"checked_at": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z",
+          json.dump({"checked_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
                      "dpwh_api": os.environ["OUTCOME"],
-                     "message": log.strip().splitlines()[-1][:300] if log.strip() else ""},
-                    open("bantaypondo/data/update-status.json", "w"), indent=1)
+                     "message": log.strip().splitlines()[-1][:300] if log.strip() else "",
+                     "upload_sha": os.environ.get("UPLOAD_SHA") or old.get("upload_sha", ""),
+                     "rebuilt_from_upload": os.environ.get("UPLOAD_USED") == "yes"},
+                    open(path, "w"), indent=1)
           PY
           cat bantaypondo/data/update-status.json
 
