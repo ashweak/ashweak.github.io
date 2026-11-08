@@ -1,5 +1,7 @@
 {
- "checked_at": "2026-11-08T06:41:02Z",
+ "checked_at": "2026-11-08T06:46:02+00:00",
  "dpwh_api": "failure",
- "message": "DPWH API unavailable: page 1: HTTP 403 (text/html; charset=UTF-8)"
+ "message": "DPWH API unavailable: page 1: HTTP 403 (text/html; charset=UTF-8)",
+ "upload_sha": "",
+ "rebuilt_from_upload": false
 }
