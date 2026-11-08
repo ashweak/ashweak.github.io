@@ -1,0 +1,89 @@
+# Weekly data refresh for the BantayPondo live demo (https://ashweak.github.io/bantaypondo/).
+# Cost: free. GitHub Actions and GitHub Pages are free for public repositories.
+# No paid APIs or AI calls are used here.
+name: BantayPondo weekly update
+
+on:
+  schedule:
+    - cron: "17 18 * * 0"   # every Monday 02:17 Philippine time (Sunday 18:17 UTC)
+  workflow_dispatch: {}      # "Run workflow" button in the Actions tab
+  push:
+    branches: [main]
+    paths: [".github/workflows/bantaypondo-weekly.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bantaypondo-weekly
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get BantayPondo code (public repo)
+        uses: actions/checkout@v4
+        with:
+          repository: ashweak/bantaypondo
+          path: bp
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        working-directory: bp/backend
+        run: |
+          pip install -q fastapi sqlalchemy pydantic-settings langgraph google-genai httpx pytest
+          python -m pytest -q
+
+      - name: Download community mirror (for approved budgets)
+        working-directory: bp/backend
+        run: |
+          mkdir -p data/raw
+          curl -sSfL -o data/raw/flood_control.csv \
+            "https://huggingface.co/datasets/chrisandrei/DPWH_Flood_Control_2018-2025_Projects/resolve/main/flood-control-projects-visual_2025-11-08.csv"
+
+      - name: Fetch latest projects from the official DPWH API
+        id: fetch
+        continue-on-error: true
+        working-directory: bp/backend
+        run: |
+          python -m app.ingestion.dpwh_api --mirror data/raw/flood_control.csv \
+            --mapping data/mappings/hf_flood_control_mirror.json --out data/raw/merged.csv
+
+      - name: Rebuild flags and snapshot
+        if: steps.fetch.outcome == 'success'
+        working-directory: bp/backend
+        run: |
+          python -m app.ingestion.importer projects data/raw/merged.csv --source dpwh_transparency
+          python -c "from app.db import SessionLocal; from app.rules.red_flags import compute_flags; print('flags', compute_flags(SessionLocal()))"
+          DATA_AS_OF=$(date -u +%F) python -m app.snapshot ../../bantaypondo/data/snapshot.json
+
+      - name: Sync site code from the BantayPondo repo
+        run: |
+          cp bp/frontend/index.html bp/frontend/app.js bp/frontend/styles.css bp/frontend/logo.svg bantaypondo/
+          cp -r bp/frontend/vendor bantaypondo/
+
+      - name: Commit if anything changed
+        run: |
+          rm -rf bp
+          git config user.name "bantaypondo-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bantaypondo
+          if git diff --cached --quiet; then
+            echo "No changes." >> "$GITHUB_STEP_SUMMARY"
+          else
+            git commit -m "BantayPondo weekly data update ($(date -u +%F))"
+            git push
+          fi
+          if [ "${{ steps.fetch.outcome }}" = "success" ]; then
+            echo "Data refreshed from the official DPWH API." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning::DPWH API was unavailable or blocked. Kept last week's data." 
+            echo "DPWH API unavailable: kept the previous snapshot." >> "$GITHUB_STEP_SUMMARY"
+          fi
