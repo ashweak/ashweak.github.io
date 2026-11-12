@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vendra — interactive demo (fictional data)</title>
 <meta name="description" content="Vendra: an AI business assistant for Philippine small businesses. Interactive in-browser demo with fictional data.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23111113'/><path d='M16 6l9 5v10l-9 5-9-5V11z M11.5 12.5L16 20l4.5-7.5' stroke='white' stroke-width='1.8' fill='none' stroke-linejoin='round'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 3a13 13 0 0 1 13 13 13 13 0 0 1-13 13H5.5a1.5 1.5 0 0 1-1.2-2.4L6.6 24A13 13 0 0 1 16 3z' fill='%23ffc83d'/><path d='M10.5 12.5l5.5 8 5.5-8' fill='none' stroke='%23171612' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <link rel="stylesheet" href="css/vendra.css">
-<link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>:root{--accent:#7c3aed}</style>
 </head>
 <body class="min-h-screen overflow-x-clip font-sans text-ink-900 antialiased">
@@ -15,7 +15,7 @@
 <!-- Demo banner -->
 <div class="bg-ink-900 text-sm text-white">
   <div class="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2.5">
-    <span class="inline-flex items-center gap-2 font-semibold"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 2.5l8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5z"/><path d="M7.5 8.5L12 16l4.5-7.5"/></svg>Vendra demo</span>
+    <span class="inline-flex items-center gap-2 font-semibold"><svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 1 13 13 13 13 0 0 1-13 13H5.5a1.5 1.5 0 0 1-1.2-2.4L6.6 24A13 13 0 0 1 16 3z" fill="#ffc83d"/><path d="M10.5 12.5l5.5 8 5.5-8" fill="none" stroke="#171612" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="font-display text-base">vendra</span> demo</span>
     <span class="text-ink-400">Runs in your browser with fictional data. The real app is Laravel + Gemini.</span>
     <span class="flex-1"></span>
     <a class="underline-offset-2 hover:underline" href="https://github.com/ashweak/vendra" target="_blank" rel="noopener">GitHub ↗</a>
@@ -30,61 +30,66 @@
 
 <!-- ================= CUSTOMER VIEW ================= -->
 <section id="view-customer" class="view bg-white">
-  <div class="mx-auto max-w-6xl px-3 pt-3 sm:px-5 sm:pt-5">
-    <header class="flex flex-wrap items-stretch rounded-2xl border border-line bg-white">
-      <span class="flex items-center gap-2.5 px-5 py-4 md:border-r md:border-line"><span class="flex h-8 w-8 items-center justify-center rounded-lg text-sm font-semibold text-white" style="background:var(--accent)">L</span><span class="text-[15px] font-semibold">Lumina Hair &amp; Nail Studio</span></span>
-      <nav class="order-3 flex w-full justify-center gap-1 border-t border-line px-3 py-2 text-sm md:order-none md:w-auto md:flex-1 md:border-t-0 md:py-0">
-        <button class="rounded-md px-3 py-2 text-ink-600 hover:text-ink-900" data-go="home">Home</button>
-        <button class="rounded-md px-3 py-2 text-ink-600 hover:text-ink-900" data-go="book">Book</button>
-        <button class="rounded-md px-3 py-2 text-ink-600 hover:text-ink-900" data-go="mine">My requests</button>
-      </nav>
-      <span class="ml-auto hidden items-center gap-3 border-l border-line px-5 py-3 md:ml-0 md:flex"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-tile"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v3a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></span><span class="leading-tight"><span class="block text-[11px] text-ink-500">Call any time</span><span class="block text-sm font-semibold">0917 000 0101</span></span></span>
-    </header>
+  <div class="sticky top-0 z-30 px-3 pt-3 sm:px-5">
+    <nav class="mx-auto flex max-w-6xl flex-wrap items-center gap-2 rounded-[26px] border border-line bg-white/85 py-2 pr-2 pl-2.5 shadow-[0_8px_30px_-18px_rgba(23,22,18,.35)] backdrop-blur md:rounded-full">
+      <span class="mr-auto flex items-center gap-2.5 md:mr-0"><span class="flex h-9 w-9 items-center justify-center rounded-full font-display text-sm font-bold text-white" style="background:var(--accent)">L</span><span class="font-display text-[15px] font-bold">Lumina Hair &amp; Nail Studio</span></span>
+      <span class="btn btn-primary btn-sm md:order-last">📞 0917 000 0101</span>
+      <div class="order-last flex w-full justify-center gap-1 text-sm md:order-none md:mx-auto md:w-auto">
+        <button class="cnav rounded-full px-3.5 py-2" data-go="home">Home</button>
+        <button class="cnav rounded-full px-3.5 py-2" data-go="book">Book</button>
+        <button class="cnav rounded-full px-3.5 py-2" data-go="mine">My requests</button>
+      </div>
+    </nav>
   </div>
   <main class="mx-auto max-w-6xl px-5 py-10 pb-28 sm:px-8">
     <!-- home -->
     <div id="c-home" class="cpage">
-      <section class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+      <section class="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
         <div>
           <span class="eyebrow">Salon / beauty services · fictional</span>
-          <h1 class="display mt-5">Lumina Hair &amp; Nail Studio</h1>
-          <p class="lead mt-5 max-w-lg">Neighborhood salon for cuts, color and nail care. Walk-ins welcome when slots are free.</p>
-          <div class="mt-8 flex flex-wrap items-center gap-6">
-            <button class="btn btn-primary" data-go="book">Book an appointment</button>
-            <button class="btn-play" onclick="Chat.open()"><span class="btn-play-icon"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></span> Ask in Taglish</button>
+          <h1 class="display mt-6">Lumina Hair &amp; Nail Studio</h1>
+          <p class="lead mt-6 max-w-lg">Neighborhood salon for cuts, color and nail care. Walk-ins welcome when slots are free.</p>
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <button class="btn btn-sun px-6" data-go="book">Book an appointment →</button>
+            <button class="btn-play" onclick="Chat.open()"><span class="btn-play-icon"><svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></span> Ask in Taglish</button>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-2">
+            <span class="chip"><span class="h-2 w-2 rounded-full bg-leaf"></span>Open Mon–Sat · 9:00 AM – 7:00 PM</span>
+            <span class="chip">📍 12 Sampaguita St., Quezon City (fictional)</span>
           </div>
           <p class="mt-6 text-sm text-ink-500">Try: “Magkano ang haircut?” · “Pa-book po bukas 3pm” · “Pwede discount?”</p>
         </div>
-        <div class="notch art-warm aspect-[5/4] w-full" style="--nw: 38%; --nh: 52px">
-          <span class="notch-slot"><span class="eyebrow ring-1 ring-line">✦ AI replies in Taglish</span></span>
-          <div class="absolute inset-x-5 bottom-5 z-[6] grid gap-3 sm:grid-cols-[1fr_auto]">
-            <div class="rounded-xl bg-white/90 p-4 backdrop-blur"><p class="text-xs text-ink-500">Open Mon–Sat</p><p class="font-display mt-0.5 text-lg font-semibold">9:00 AM – 7:00 PM</p><p class="mt-1 text-xs text-ink-600">12 Sampaguita St., Quezon City (fictional)</p></div>
-            <div class="hidden items-center rounded-xl bg-ink-900 p-4 text-sm leading-tight text-white sm:flex"><span>“Magkano po?”<br><span class="text-white/60">Answered instantly</span></span></div>
-          </div>
+        <div class="dots relative rounded-[32px] bg-tile px-6 pt-12 pb-10 sm:px-10">
+          <span class="sticker absolute -top-8 right-6 hidden items-center justify-center rounded-full bg-sun text-ink-900 sm:inline-flex" aria-hidden="true">
+            <svg class="sticker-ring absolute inset-0" viewBox="0 0 120 120"><defs><path id="sp" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs><text font-size="9.6" font-weight="700" letter-spacing="1.7" fill="currentColor" font-family="Inter, sans-serif"><textPath href="#sp">ASK IN TAGLISH · 24/7 · </textPath></text></svg>
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-ink-900 text-sun"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg></span>
+          </span>
+          <div class="phone"><div class="phone-screen">
+            <div class="flex items-center gap-2.5 border-b border-line bg-white px-4 pt-6 pb-3"><span class="flex h-8 w-8 items-center justify-center rounded-full bg-ink-900 text-sun"><svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg></span><span class="leading-tight"><span class="block text-sm font-semibold">Lumina Studio</span><span class="block text-[11px] text-leaf">● AI assistant online</span></span></div>
+            <div class="dots space-y-2.5 px-3.5 py-4 text-[13px]">
+              <div class="ml-auto w-fit max-w-[85%] rounded-2xl rounded-br-md bg-ink-900 px-3.5 py-2 text-white">Magkano po ang haircut?</div>
+              <div class="w-fit max-w-[92%] rounded-2xl rounded-bl-md bg-white px-3.5 py-2.5 shadow-sm"><p>Ang Haircut po ay ₱250.00. Gusto n’yo po bang mag-book?</p>
+                <div class="mt-2.5 rounded-xl bg-sun-soft p-3"><p class="flex justify-between font-semibold"><span>Haircut</span><span>₱250.00</span></p><p class="text-[11px] text-ink-600">45 min</p><span class="btn btn-primary btn-sm mt-2 w-full">Review &amp; confirm</span></div></div>
+              <div class="w-fit rounded-full bg-white px-3 py-1.5 text-[11px] text-ink-500 shadow-sm">Nothing is booked until you confirm</div>
+            </div></div></div>
         </div>
       </section>
-      <section class="relative mt-16 mr-[calc(50%-50vw)] ml-[calc(50%-50vw)] w-screen">
-        <div class="absolute inset-x-0 top-0 z-10 flex -translate-y-1/2 justify-center"><span class="eyebrow border border-line bg-white">What we offer</span></div>
-        <div class="marquee"><div class="marquee-track" id="marquee"></div></div>
+      <section class="pt-24">
+        <span class="eyebrow">Menu &amp; prices</span>
+        <h2 class="section-title mt-4">What we offer</h2>
+        <div id="catalog" class="mt-10 grid gap-x-12 gap-y-10 lg:grid-cols-2"></div>
       </section>
-      <section class="pt-20 text-center">
-        <span class="eyebrow">About us</span>
-        <h2 class="section-title mt-4">Get to know Lumina</h2>
-        <p class="lead mx-auto mt-3 max-w-xl">Browse services, check open times and book — the AI prepares, you confirm.</p>
-      </section>
-      <section class="mt-12 grid gap-6 lg:grid-cols-2">
-        <div class="notch notch-bl art-cool min-h-[20rem] p-7 text-white" style="--nw: 46%; --nh: 64px"><p class="text-sm text-white/60">Opening hours</p><dl id="hours" class="mt-4 space-y-2.5 text-[15px]"></dl></div>
-        <div class="grid gap-4 sm:grid-cols-2">
-          <div class="stat"><p class="stat-value">5</p><p class="stat-label">Services with live prices</p></div>
-          <div class="stat"><p class="stat-value">6</p><p class="stat-label">Days a week we’re open</p></div>
-          <div class="stat"><p class="stat-value">3</p><p class="stat-label">Languages: English, Tagalog, Taglish</p></div>
-          <div class="stat"><p class="stat-value">100%</p><p class="stat-label">Of requests reviewed by you before sending</p></div>
+      <section class="pt-24">
+        <span class="eyebrow">Visit us</span>
+        <h2 class="section-title mt-4">Hours &amp; contact</h2>
+        <div class="mt-10 grid gap-4 lg:grid-cols-3">
+          <div class="card p-6"><p class="text-sm font-semibold">Opening hours</p><dl id="hours" class="mt-4 space-y-1 text-sm"></dl></div>
+          <div class="flex flex-col rounded-[22px] bg-ink-900 p-6 text-white"><p class="text-sm font-semibold">Get in touch</p>
+            <ul class="mt-5 mb-6 space-y-3 text-sm text-white/90"><li>📞 0917 000 0101</li><li>✉️ hello@lumina.test</li><li>📍 12 Sampaguita St., Quezon City (fictional)</li><li>🕘 Staff reply Mon–Sat, 9 AM – 6 PM</li></ul>
+            <button class="btn btn-sun mt-auto w-full" onclick="Chat.open()">Message us</button></div>
+          <div class="rounded-[22px] bg-sun p-6"><p class="text-sm font-semibold">How requests work</p>
+            <ol class="mt-5 space-y-4 text-sm"><li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink-900 text-xs font-bold text-sun">1</span>Ask or pick what you need — chat or form.</li><li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink-900 text-xs font-bold text-sun">2</span>Review every detail, then confirm.</li><li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink-900 text-xs font-bold text-sun">3</span>We approve or follow up.</li></ol></div>
         </div>
-      </section>
-      <section class="pt-20">
-        <span class="eyebrow">Services</span>
-        <h2 class="section-title mt-4">Prices, upfront</h2>
-        <div id="catalog" class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
       </section>
     </div>
     <!-- book -->
@@ -133,16 +138,16 @@
   <footer class="border-t border-line py-6 text-center text-xs text-ink-500">Lumina Hair &amp; Nail Studio (fictional) · Powered by Vendra — from inquiry to opportunity</footer>
 
   <!-- chat -->
-  <button id="chatOpen" class="fixed right-5 bottom-5 z-40 rounded-full bg-ink-900 px-5 py-3 text-sm font-medium text-white shadow-[0_10px_30px_-10px_rgba(0,0,0,.5)]" onclick="Chat.open()">💬 Ask us anything</button>
+  <button id="chatOpen" class="fixed right-5 bottom-5 z-40 rounded-full bg-ink-900 px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(0,0,0,.5)]" onclick="Chat.open()">💬 Ask us anything</button>
   <section id="chatPanel" class="fixed inset-0 z-50 hidden flex-col bg-white sm:inset-auto sm:right-4 sm:bottom-4 sm:h-[34rem] sm:w-96 sm:rounded-2xl sm:border sm:border-line sm:shadow-2xl" role="dialog" aria-label="Chat">
     <header class="flex items-center gap-3 border-b border-line px-4 py-3">
-      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ink-900 text-white">✦</span>
+      <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ink-900 text-sun">✦</span>
       <div class="min-w-0 flex-1"><p class="font-semibold">Lumina</p><p id="chatState" class="text-xs text-ink-500">AI assistant · answers from published info</p></div>
       <button class="rounded-lg px-2 py-1 text-ink-500 hover:bg-ink-100" onclick="Chat.close()" aria-label="Minimize">—</button>
     </header>
-    <div id="chatLog" class="flex-1 space-y-3 overflow-y-auto bg-tile p-4 text-sm" aria-live="polite"></div>
+    <div id="chatLog" class="dots flex-1 space-y-3 overflow-y-auto bg-tile p-4 text-sm" aria-live="polite"></div>
     <form id="chatForm" class="border-t border-line p-3">
-      <div class="flex gap-2"><input id="chatInput" class="input" placeholder="Type your message…" autocomplete="off" aria-label="Message"><button class="btn btn-primary">Send</button></div>
+      <div class="flex gap-2"><input id="chatInput" class="input rounded-full" placeholder="Type your message…" autocomplete="off" aria-label="Message"><button class="btn btn-primary">Send</button></div>
       <div class="mt-2 flex flex-wrap gap-1.5" id="chips"></div>
     </form>
   </section>
@@ -153,10 +158,10 @@
   <div class="mx-auto grid max-w-6xl gap-6 p-4 sm:p-6 lg:grid-cols-[15rem_1fr]">
     <nav class="card h-fit p-3 text-sm lg:sticky lg:top-4" aria-label="Dashboard">
       <div class="mb-2 flex items-center gap-3 rounded-xl bg-tile p-3"><span class="flex h-9 w-9 items-center justify-center rounded-lg text-sm font-semibold text-white" style="background:var(--accent)">L</span><span><span class="block text-sm font-semibold">Lumina Studio</span><span class="block text-xs text-ink-500">Lara · Owner</span></span></div>
-      <button class="dnav block w-full rounded-lg px-3 py-2.5 text-left font-medium" data-d="overview">Overview</button>
-      <button class="dnav block w-full rounded-lg px-3 py-2.5 text-left font-medium" data-d="inbox">Conversations</button>
-      <button class="dnav block w-full rounded-lg px-3 py-2.5 text-left font-medium" data-d="appts">Appointments</button>
-      <button class="dnav block w-full rounded-lg px-3 py-2.5 text-left font-medium" data-d="log">Activity log</button>
+      <button class="dnav block w-full rounded-full px-4 py-2.5 text-left" data-d="overview">Overview</button>
+      <button class="dnav block w-full rounded-full px-4 py-2.5 text-left" data-d="inbox">Conversations</button>
+      <button class="dnav block w-full rounded-full px-4 py-2.5 text-left" data-d="appts">Appointments</button>
+      <button class="dnav block w-full rounded-full px-4 py-2.5 text-left" data-d="log">Activity log</button>
     </nav>
     <div>
       <div id="d-overview" class="dpage">
@@ -261,11 +266,12 @@ const longDate = s => new Date(s + 'T00:00').toLocaleDateString('en-PH', { weekd
 // ---------------------------------------------------------------- Customer page
 const $ = id => document.getElementById(id);
 function renderHome() {
-  $('hours').innerHTML = [1, 2, 3, 4, 5, 6, 0].map(d => `<div class="flex justify-between border-b border-white/10 pb-2.5 last:border-0"><dt class="text-white/70">${DAYS[d]}</dt><dd class="font-medium">${HOURS[d] ? '9:00 AM – 7:00 PM' : 'Closed'}</dd></div>`).join('');
-  $('marquee').innerHTML = [...SERVICES, ...SERVICES, ...SERVICES, ...SERVICES].map(x => `<span class="text-ink-300">•</span><span>${x.name}</span>`).join('');
-  $('catalog').innerHTML = SERVICES.map(s => `<article class="tile flex flex-col"><div class="flex items-start justify-between gap-2"><h3 class="text-lg font-semibold">${s.name}</h3><span class="font-display text-lg font-semibold">${peso(s.price)}</span></div><p class="mt-0.5 text-xs text-ink-500">${s.cat} · ${s.dur} min</p><p class="mt-2 flex-1 text-sm text-ink-600">${s.desc}</p><button class="link mt-3 text-left text-sm" onclick="goBook(${s.id})">Book this →</button></article>`).join('');
+  const todayDow = new Date().getDay();
+  $('hours').innerHTML = [1, 2, 3, 4, 5, 6, 0].map(d => `<div class="flex justify-between gap-4 rounded-lg px-3 py-2 ${d === todayDow ? 'bg-sun-soft font-semibold' : ''}"><dt>${['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][d]}</dt><dd>${HOURS[d] ? '9:00 AM – 7:00 PM' : 'Closed'}</dd></div>`).join('');
+  const groups = {}; SERVICES.forEach(x => (groups[x.cat] = groups[x.cat] || []).push(x));
+  $('catalog').innerHTML = Object.entries(groups).map(([g, rows]) => `<div><h3 class="flex items-center gap-3 text-sm font-semibold tracking-widest text-ink-500 uppercase">${g}<span class="h-px flex-1 bg-line"></span></h3><ul class="mt-2">${rows.map(x => `<li class="group flex items-center gap-4 border-b border-dashed border-line py-4"><div class="min-w-0 flex-1"><div class="flex items-baseline gap-3"><span class="font-display text-lg font-semibold">${x.name}</span><span class="flex-1 border-b-2 border-dotted border-ink-200"></span><span class="font-display text-lg font-bold">${peso(x.price)}</span></div><p class="mt-1 text-sm text-ink-500">${x.dur} min · ${x.desc}</p></div><button class="btn btn-secondary btn-sm shrink-0 group-hover:border-ink-900" onclick="goBook(${x.id})">Book</button></li>`).join('')}</ul></div>`).join('');
 }
-function cgo(p) { document.querySelectorAll('.cpage').forEach(x => x.classList.add('hidden')); $('c-' + p).classList.remove('hidden'); if (p === 'mine') renderMine(); window.scrollTo(0, 0); }
+function cgo(p) { document.querySelectorAll('.cpage').forEach(x => x.classList.add('hidden')); $('c-' + p).classList.remove('hidden'); document.querySelectorAll('.cnav').forEach(b => { const a = b.dataset.go === p; b.classList.toggle('bg-sun-soft', a); b.classList.toggle('font-semibold', a); b.classList.toggle('text-ink-600', !a); }); if (p === 'mine') renderMine(); window.scrollTo(0, 0); }
 window.goBook = (svc, date, time) => { cgo('book'); if (svc) $('svc').value = svc; $('date').value = date || $('date').value || iso(dayAhead(1)); renderSlots(time); };
 let chosen = null;
 function renderSlots(pre) {
@@ -326,7 +332,7 @@ const Chat = {
     if (m.from === 'ai' || m.from === 'staff') { const p = document.createElement('p'); p.className = 'mb-0.5 text-[11px] font-semibold text-ink-500'; p.textContent = m.from === 'ai' ? 'AI assistant' : 'Lara (staff)'; b.appendChild(p); }
     b.appendChild(document.createTextNode(m.body));
     if (m.draft) {
-      const c = document.createElement('div'); c.className = 'mt-2 rounded-xl border border-line bg-tile p-3';
+      const c = document.createElement('div'); c.className = 'mt-2 rounded-xl bg-sun-soft p-3';
       c.innerHTML = `<p class="font-semibold">${m.draft.title}</p>${m.draft.lines.map(l => `<p class="text-xs text-ink-600">${l}</p>`).join('')}`;
       const a = document.createElement('button'); a.type = 'button'; a.className = 'btn btn-primary btn-sm mt-2 w-full'; a.textContent = 'Review & confirm';
       a.onclick = () => { this.close(); goBook(m.draft.svc, m.draft.date, m.draft.time); }; c.appendChild(a); b.appendChild(c);
@@ -398,7 +404,7 @@ function reply(raw) {
 // ---------------------------------------------------------------- Dashboard
 let curConv = 1;
 function dgo(p) { document.querySelectorAll('.dpage').forEach(x => x.classList.add('hidden')); $('d-' + p).classList.remove('hidden');
-  document.querySelectorAll('.dnav').forEach(b => { const a = b.dataset.d === p; b.classList.toggle('bg-ink-900', a); b.classList.toggle('text-white', a); b.classList.toggle('text-ink-600', !a); });
+  document.querySelectorAll('.dnav').forEach(b => { const a = b.dataset.d === p; b.classList.toggle('bg-sun-soft', a); b.classList.toggle('font-semibold', a); b.classList.toggle('text-ink-600', !a); });
   ({ overview: renderOverview, inbox: renderInbox, appts: renderAgenda, log: renderLog })[p](); }
 function renderOverview() {
   const waiting = S.convs.filter(c => c.state === 'waiting_for_staff').length, pending = S.appts.filter(a => a.status === 'pending_approval').length;
@@ -438,13 +444,13 @@ function refreshBadge() { const n = S.convs.filter(c => c.state === 'waiting_for
 
 // ---------------------------------------------------------------- Views
 function view(v) { document.querySelectorAll('.view').forEach(x => x.classList.add('hidden')); $('view-' + v).classList.remove('hidden');
-  document.querySelectorAll('.tab').forEach(t => { const a = t.dataset.view === v; t.setAttribute('aria-selected', a); t.classList.toggle('bg-white', a); t.classList.toggle('text-ink-900', a); t.classList.toggle('text-ink-300', !a); });
+  document.querySelectorAll('.tab').forEach(t => { const a = t.dataset.view === v; t.setAttribute('aria-selected', a); t.classList.toggle('bg-sun', a); t.classList.toggle('text-ink-900', a); t.classList.toggle('text-ink-300', !a); });
   if (v === 'dashboard') dgo('overview'); history.replaceState(null, '', '#' + v); }
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => view(t.dataset.view));
 document.querySelectorAll('[data-go]').forEach(b => b.onclick = () => b.dataset.go === 'book' ? goBook() : cgo(b.dataset.go));
 document.querySelectorAll('[data-view-go]').forEach(b => b.onclick = () => view(b.dataset.viewGo));
 document.querySelectorAll('.dnav').forEach(b => b.onclick = () => dgo(b.dataset.d));
-renderHome(); refreshBadge(); view((location.hash || '#customer').slice(1).replace(/[^a-z]/g, '') || 'customer');
+renderHome(); cgo('home'); refreshBadge(); view((location.hash || '#customer').slice(1).replace(/[^a-z]/g, '') || 'customer');
 </script>
 </body>
 </html>
