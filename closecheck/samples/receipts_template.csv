@@ -1,0 +1,2 @@
+receipt_id,received_at,amount,account_id,reference,sale_id,fee,net_amount,notes
+R-001,2026-11-14,1000.00,GCASH,REF1001,S-001,0.00,1000.00,Example row - replace with your own

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="CloseCheck: a free, open-source daily reconciliation tool for small retailers. Your records stay in this browser.">
+<title>CloseCheck</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+</head>
+<body>
+<a class="skip" href="#view">Skip to content</a>
+<header class="topbar">
+  <button type="button" id="menu-btn" class="btn ghost menu-btn" aria-controls="nav" aria-expanded="false">Menu</button>
+  <span class="brand">CloseCheck</span>
+  <span class="ws" id="workspace-name"></span>
+</header>
+<div class="layout">
+  <nav id="nav" class="nav" aria-label="Main">
+    <ul id="nav-list"></ul>
+    <p class="nav-foot">Records stay in this browser. Not a bank verification or accounting system. <span id="version"></span></p>
+  </nav>
+  <main>
+    <div id="banners"></div>
+    <div id="alerts" class="toasts" role="alert"></div>
+    <div id="status" class="toasts" role="status" aria-live="polite"></div>
+    <div id="view" tabindex="-1"><p>Loading…</p></div>
+  </main>
+</div>
+<noscript><p class="noscript">CloseCheck needs JavaScript to run. It processes your files in this browser only.</p></noscript>
+<script type="module" src="assets/js/ui/app.js"></script>
+</body>
+</html>

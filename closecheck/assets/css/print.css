@@ -1,0 +1,12 @@
+/* Browser print-to-PDF: only the report content. */
+.topbar, .nav, .toasts, #banners, .no-print, .toolbar, .skip, .btn { display: none !important; }
+body { background: #fff; color: #000; font-size: 11pt; }
+.layout { display: block; } main { padding: 0; max-width: none; }
+.card { border: 0; padding: 0; margin: 0; }
+.table-wrap { overflow: visible; border: 0; }
+table { font-size: 9.5pt; } thead th { position: static; background: #eee; }
+th, td { border-bottom: 1px solid #999; padding: 3pt 5pt; }
+.chip { border: 1px solid #000; background: none; color: #000; }
+h1 { font-size: 15pt; } h2 { font-size: 13pt; } h3 { break-after: avoid; }
+tr { break-inside: avoid; }
+@page { margin: 14mm; }

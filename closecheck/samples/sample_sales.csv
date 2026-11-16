@@ -1,0 +1,9 @@
+sale_id,sale_date,total_due,expected_account,expected_reference,customer_label,due_date,claimed_payment_status,notes
+S-0001,2026-11-13,1000.00,GCASH,GC-70001,CUST-01,,PAID,Paid in full by e-wallet
+S-0002,2026-11-13,1500.00,,,CUST-02,2026-11-13,PARTIAL,Paid in two parts
+S-0003,2026-11-13,800.00,BANK,BK-555,CUST-03,2026-11-21,UNPAID,Credit sale
+S-0004,2026-11-14,450.00,CASH,,WALK-IN,,PAID,Cash sale
+S-0005,2026-11-14,1200.00,GCASH,GC-70005,CUST-04,,PAID,"Marked paid, no receipt found"
+S-0006,2026-11-14,1000.00,GCASH,GC-70006,CUST-05,,PAID,Customer overpaid
+S-0007,2026-11-14,300.00,GCASH,GC-70007,CUST-06,,PAID,Two receipts share this reference
+S-0008,2026-11-14,650.00,CASH,,WALK-IN,,PAID,Cash sale

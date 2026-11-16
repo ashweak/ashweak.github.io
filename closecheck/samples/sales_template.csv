@@ -1,0 +1,2 @@
+sale_id,sale_date,total_due,expected_account,expected_reference,customer_label,due_date,claimed_payment_status,notes
+S-001,2026-11-14,1000.00,GCASH,REF1001,CUST-A,,PAID,Example row - replace with your own
