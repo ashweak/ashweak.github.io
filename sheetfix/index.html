@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; worker-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="SheetFix: clean CSV files, find duplicates, and compare two lists in your browser. Files stay on your device.">
+  <title>SheetFix</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <button id="menu-toggle" class="btn ghost menu-btn" type="button" aria-controls="nav" aria-expanded="false">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <span>Menu</span>
+    </button>
+    <a class="brand" href="#/home"><span class="brand-mark" aria-hidden="true">SF</span> SheetFix</a>
+    <span class="topbar-note">Files stay on this device</span>
+  </header>
+  <div class="layout">
+    <nav id="nav" class="sidebar" aria-label="Tools"></nav>
+    <main id="main" tabindex="-1"></main>
+  </div>
+  <div id="busy" class="busy" role="status" aria-live="polite" hidden></div>
+  <div id="live" class="sr-only" aria-live="polite"></div>
+  <noscript><p class="noscript">SheetFix needs JavaScript to process files in your browser.</p></noscript>
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

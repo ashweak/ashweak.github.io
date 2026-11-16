@@ -1,0 +1,14 @@
+SKU,Product name,Category,Price,Stock,Updated
+000123,  Rice 5kg  ,Grocery,"1,250.00",40,13/01/2026
+000124,Cooking   Oil 1L,grocery,189.50,25,14/01/2026
+000125,Instant Noodles (pack),Grocery,12.00,300,31/02/2026
+000123,  Rice 5kg  ,Grocery,"1,250.00",40,13/01/2026
+000126,"Sardines, 155g",Canned,24.75,,15/01/2026
+000127,Coffee 3-in-1,Beverage,8.00,500,15/01/2026
+000127,Coffee 3-in-1 (promo),Beverage,7.50,480,16/01/2026
+,Unlabeled item,Misc,10.00,1,16/01/2026
+000128,"=HYPERLINK(""http://example.invalid"")",Misc,0.00,0,17/01/2026
+000129,"Bath soap
+(twin pack)",Personal care,45.00,60,17/01/2026
+,,,,,
+000130,Toothpaste 100ml,Personal care,abc,35,18/01/2026
