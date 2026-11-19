@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vendra case study — Lance Agua</title>
+<meta name="description" content="How Vendra, an AI business assistant for small Philippine businesses, was designed, built and tested.">
+<meta property="og:title" content="Vendra case study — Lance Agua">
+<meta property="og:description" content="How Vendra, an AI business assistant for small Philippine businesses, was designed, built and tested.">
+<meta property="og:image" content="../assets/img/portrait-light.png">
+<link rel="icon" href="../assets/favicon.ico" sizes="any">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/vt323-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'VT323';font-style:normal;font-weight:400;font-display:swap;src:url(../assets/fonts/vt323-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Press Start 2P';font-style:normal;font-weight:400;font-display:swap;src:url(../assets/fonts/press-start-2p-latin-400-normal.woff2) format('woff2')}
+.foot a{overflow-wrap:anywhere}
+
+:root{--c0a0a0a:#0a0a0a;--c0e0e0e:#0e0e0e;--c121212:#121212;--c1a1a1a:#1a1a1a;--c1f1f1f:#1f1f1f;--c262626:#262626;--c2e2e2e:#2e2e2e;--c3a3a3a:#3a3a3a;--c4a4a4a:#4a4a4a;--c525252:#525252;--c5e5e5e:#5e5e5e;--c6b6b6b:#6b6b6b;--c858585:#858585;--ca3a3a3:#a3a3a3;--ccfcfcf:#cfcfcf;--cd0d0d0:#d0d0d0;--cd4d4d4:#d4d4d4;--ce0e0e0:#e0e0e0;--ce5e5e5:#e5e5e5;--cffffff:#ffffff;--glow1:rgba(255,255,255,0.12);--glow2:rgba(255,255,255,0.26)}
+.tk.light{--c0a0a0a:#f4f4f2;--c0e0e0e:#ebebe9;--c121212:#ffffff;--c1a1a1a:#e6e6e4;--c1f1f1f:#dfdfdd;--c262626:#d9d9d7;--c2e2e2e:#d2d2d0;--c3a3a3a:#c2c2c0;--c4a4a4a:#a9a9a7;--c525252:#a3a3a1;--c5e5e5e:#6a6a68;--c6b6b6b:#9a9a98;--c858585:#5b5b59;--ca3a3a3:#444442;--ccfcfcf:#2a2a28;--cd0d0d0:#1f1f1f;--cd4d4d4:#222220;--ce0e0e0:#161616;--ce5e5e5:#111111;--cffffff:#000000;--glow1:rgba(0,0,0,0.08);--glow2:rgba(0,0,0,0.18)}
+.theme-btn{display:flex;align-items:center;gap:8px;min-height:32px;padding:0;border:0;background:transparent;color:var(--c858585);font-family:'VT323',monospace;font-size:14px;cursor:pointer}
+.theme-btn:hover{color:var(--cd0d0d0)}
+body{margin:0;background:var(--c0a0a0a)}
+a{color:var(--ccfcfcf);text-decoration:none}a:hover{color:var(--cffffff)}
+.nav a{color:var(--c858585)}.nav a:hover{color:var(--cd0d0d0)}
+.menu-btn{display:none}
+@media (max-width: 760px){
+aside{position:fixed;top:0;left:0;width:0;height:0;max-width:none !important;flex:none !important;border:0 !important;background:transparent !important;z-index:30}
+.menu-btn{display:flex !important;position:fixed;top:8px;left:8px;z-index:31}
+.side{position:fixed !important;top:0;left:0;width:78vw;max-width:300px;height:100vh !important;overflow:auto;background:var(--c0e0e0e);padding:64px 22px 24px !important;transform:translateX(-100%);opacity:0;pointer-events:none;transition:transform .3s ease,opacity .3s ease}
+.side.open{transform:none;opacity:1;pointer-events:auto}
+main{padding-top:60px !important}
+}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.blink{animation:blink 1s steps(1) infinite}
+button{cursor:pointer}
+.card:hover .pname{color:var(--cffffff)}
+.card>div{flex:1}
+.card>div>div:last-child{margin-top:auto}
+@media (max-width: 1180px){.bento{grid-template-columns:repeat(2,minmax(0,1fr)) !important}.bento>*{grid-column:auto !important;grid-row:auto !important}.bento>#about,.bento>#status,.bento>#stack,.bento>#projects,.bento>#seminars{grid-column:1 / -1 !important}}
+@media (max-width: 700px){.bento{grid-template-columns:minmax(0,1fr) !important}.bento>section{padding:18px !important}}
+@media (max-width: 760px){main{padding:64px 16px 40px !important}main section,main>div>div{padding-left:0 !important;padding-right:0 !important}}
+.ttl-px{font-size:clamp(15px,4.6vw,24px) !important;overflow-wrap:anywhere}
+
+main>div>*{padding-left:0 !important;padding-right:0 !important}
+.xproj{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;border-left:1px solid var(--c262626)}
+.xproj li{display:flex;flex-direction:column;gap:2px;padding:6px 0 6px 14px}
+.xproj a{color:var(--ce0e0e0)}.xproj a::after{content:" ↗";color:var(--c5e5e5e);font-size:.85em}
+.xproj span{font-size:14px;color:var(--c858585)}
+.xproj .xsubs{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:2px}
+.xproj .xsubs a{font-size:14px;color:var(--ca3a3a3)}.xproj .xsubs a:hover{color:var(--cffffff)}
+.xchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.xchips a{background:var(--c262626);padding:0 7px;border-radius:3px;font-size:13px;color:var(--ccfcfcf)}
+.xchips a:hover{color:var(--cffffff)}
+.credit{margin:6px 0 0;font-size:12px;color:var(--c5e5e5e)}
+.credit a{color:var(--c858585)}.credit a:hover{color:var(--cd0d0d0)}
+.empty{display:flex;flex-direction:column;gap:6px;padding:48px 0;text-align:center;border:1px dashed var(--c262626);border-radius:8px}
+.empty span{color:var(--ce5e5e5);font-size:17px}
+.empty small{color:var(--c858585);font-size:14px}
+.phead{padding:40px 0 28px !important;border-bottom:1px solid var(--c262626)}
+.phead h1{font-size:26px !important}
+.shead{font-size:16px;color:var(--c858585)}
+.slink{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--c858585) !important}
+.slink:hover{color:var(--cd0d0d0) !important}
+[hidden]{display:none !important}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--cd0d0d0);outline-offset:2px}
+main [style*="background: var(--c121212)"]{background:var(--c121212) !important;border:1px solid var(--c1f1f1f);border-radius:8px;overflow:hidden}
+main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
+.gwrap{display:flex;flex-direction:column;gap:44px}
+.gsec{display:flex;flex-direction:column;gap:16px}
+.glabel{margin:0;font-size:13px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--c858585)}
+.ggrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.gcard2{display:flex;flex-direction:column;background:var(--c121212);border:1px solid var(--c1f1f1f);border-radius:8px;overflow:hidden;transition:border-color .2s ease,box-shadow .3s ease}
+.gcard2:hover{border-color:var(--c3a3a3a);box-shadow:0 0 28px var(--glow1)}
+.gimg{padding:22px 22px 24px}
+.gimg img{display:block;width:100%;aspect-ratio:1;object-fit:contain;box-sizing:border-box;background:#fff;border-radius:2px}
+.tk.light .gimg img{box-shadow:inset 0 0 0 1px #e6e6e4}
+.gfoot{border-top:1px solid var(--c1f1f1f);padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px}
+.gname{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.gname h3{margin:0;font-size:17px;font-weight:400;color:var(--ce5e5e5)}
+.gname span{font-size:14px;color:var(--c5e5e5e)}
+.gfoot p{margin:0;font-size:14px;color:var(--c858585)}
+@media (max-width:560px){.ggrid{grid-template-columns:1fr}}
+
+.cs h2{margin:0 0 12px;font-size:13px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--c858585)}
+.cs p{margin:0 0 12px;font-size:17px;color:var(--ca3a3a3)}
+.cs p strong,.cs li strong{color:var(--ce5e5e5);font-weight:400}
+.cs ul,.cs ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;font-size:17px;color:var(--ca3a3a3)}
+.cs section{display:flex;flex-direction:column}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--c262626);border:1px solid var(--c262626);border-radius:8px;overflow:hidden}
+.facts div{background:var(--c121212);padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.facts span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--c6b6b6b)}
+.facts b{font-weight:400;font-size:16px;color:var(--ce5e5e5)}
+.vid{display:block;width:100%;border:1px solid var(--c262626);border-radius:8px;background:#fff}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:15px}
+.flow span{background:var(--c1a1a1a);border:1px solid var(--c262626);border-radius:3px;padding:2px 8px;color:var(--cd0d0d0)}
+.flow i{font-style:normal;color:var(--c5e5e5e)}
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.nums div{border:1px solid var(--c262626);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.nums b{font-family:'Press Start 2P',monospace;font-weight:400;font-size:18px;color:var(--ce5e5e5)}
+.nums span{font-size:14px;color:var(--c858585)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btns a{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:3px;background:var(--c262626);color:var(--ce5e5e5);font-size:15px}
+.btns a.pri{background:var(--ce0e0e0);color:var(--c0a0a0a)}
+.btns a:hover{background:var(--c3a3a3a);color:var(--cffffff)}.btns a.pri:hover{background:var(--cffffff);color:var(--c0a0a0a)}
+@media (max-width:620px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.nums{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="tk" style="min-height: 1300px; background: var(--c0a0a0a); color: var(--ce5e5e5); font-family: 'VT323', monospace; font-size: 15px; line-height: 1.35; display: flex; flex-wrap: wrap"><script>try{if(localStorage.getItem("la-theme")==="light")document.currentScript.parentElement.classList.add("light")}catch(e){}</script>
+<aside style="flex: 1 1 200px; max-width: 230px; border-right: 1px solid var(--c262626); background: var(--c0e0e0e); box-sizing: border-box">
+<button class="menu-btn" type="button" data-action="toggleMenu" aria-label="Open menu" aria-expanded="false" style="align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: var(--ce0e0e0); cursor: pointer"><svg width="22" height="22" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 2h6v1H1zM1 4h6v1H1zM1 6h6v1H1z" fill="currentColor"></path></svg></button>
+<div class="side" style="position: sticky; top: 0; height: 100vh; padding: 28px 18px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<a href="../index.html" class="brand" aria-label="Lance Agua, home" style="font-family: 'Press Start 2P', monospace; font-size: 11px; line-height: 1.6; color: var(--ce0e0e0)">LANCE AGUA</a>
+<nav class="nav" aria-label="Sections" style="display: flex; flex-direction: column; gap: 22px; font-size: 15px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<a href="../gear.html" style="display: flex; align-items: center; gap: 10px"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 1h6v4H1zM2 2v2h4V2zM3 5h2v1H3zM2 6h4v1H2z" fill="currentColor" fill-rule="evenodd"></path></svg>Gear</a>
+</div>
+<hr style="border: 0; height: 1px; background: var(--c262626); margin: 0">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<a href="../collabs.html" style="display: flex; align-items: center; gap: 10px"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 1h2v2H1zM5 1h2v2H5zM0 4h4v3H0zM4 4h4v3H4z" fill="currentColor"></path></svg>Collabs</a>
+<a href="../recommendations.html" style="display: flex; align-items: center; gap: 10px"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 1h6v4H4v1H3v1H2V5H1z" fill="currentColor"></path></svg>Recommendations</a>
+</div>
+<hr style="border: 0; height: 1px; background: var(--c262626); margin: 0">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<a href="../projects.html" style="color: var(--ce0e0e0)">→ Projects</a>
+<a href="../experience.html">Experience</a>
+<a href="../stack.html">Stack</a>
+<a href="../certifications.html">Certifications</a>
+<a href="../seminars.html">Seminars</a>
+</div>
+</nav>
+<div class="foot" style="margin-top: auto; display: flex; flex-direction: column; gap: 10px">
+<button class="theme-btn" type="button" data-action="toggleTheme" aria-label="Light mode"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M3 0h2v1H3zM3 7h2v1H3zM0 3h1v2H0zM7 3h1v2H7zM1 1h1v1H1zM6 1h1v1H6zM1 6h1v1H1zM6 6h1v1H6zM2 2h4v4H2z" fill="currentColor"></path></svg>Light mode</button>
+<hr style="border: 0; height: 1px; background: var(--c262626); margin: 0">
+<p style="margin: 0; color: var(--c858585); font-size: 14px; line-height: 1.3">For work, collabs &amp; everything else, reach me at</p>
+<a href="mailto:lanceaagua@gmail.com" style="display: flex; align-items: center; gap: 8px; color: var(--ce0e0e0); font-size: 14px"><svg width="13" height="13" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 2h8v5H0zM1 3v3h6V3zM2 3h1v1H2zM5 3h1v1H5zM3 4h2v1H3z" fill="currentColor" fill-rule="evenodd"></path></svg>lanceaagua@gmail.com</a>
+<p class="credit">Design inspired by <a href="https://bryllim.com" target="_blank" rel="noopener">Bryl Lim ↗</a></p>
+</div>
+</div>
+</aside>
+<main style="flex: 999 1 560px; min-width: 0; padding: 40px 32px 64px; box-sizing: border-box; display: flex; justify-content: center">
+<div class="cs" style="width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 40px">
+<section class="phead" style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<a href="../projects.html" style="color: var(--c858585); font-size: 14px">← all projects</a>
+<span style="font-size: 13px; letter-spacing: 1px; color: var(--c858585)">CASE STUDY · AI · SMALL BUSINESS · 2026</span>
+<h1 class="ttl-px" style="margin: 0; font-family: 'Press Start 2P', monospace; font-size: 20px; line-height: 1.5; font-weight: 400">Vendra</h1>
+<p style="margin: 0; font-size: 17px; color: var(--ca3a3a3)">An AI business assistant that turns customer chats into bookings, orders and quotations that small Philippine businesses can trust.</p>
+<div class="btns" style="margin-top: 6px"><a class="pri" href="./">Try the demo ↗</a><a href="https://github.com/ashweak/vendra" target="_blank" rel="noopener">GitHub ↗</a><a href="https://render.com/deploy?repo=https://github.com/ashweak/vendra" target="_blank" rel="noopener">Deploy your own (free) ↗</a></div>
+</section>
+
+<section>
+<video class="vid" src="../assets/video/vendra-demo.mp4" poster="../assets/video/vendra-demo-poster.jpg" controls muted playsinline preload="metadata" aria-label="Walkthrough of Vendra: a customer books through the AI chat and the owner approves"></video>
+<p style="margin-top: 10px; font-size: 14px; color: var(--c6b6b6b)">46-second walkthrough recorded from the real app by an automated browser in GitHub Actions. All data is fictional.</p>
+</section>
+
+<div class="facts">
+<div><span>Role</span><b>Design &amp; development</b></div>
+<div><span>Type</span><b>Multi-tenant web app</b></div>
+<div><span>Stack</span><b>Laravel 13 · Gemini</b></div>
+<div><span>Status</span><b>Demo, fictional data</b></div>
+</div>
+
+<section>
+<h2>The problem</h2>
+<p>Small salons, shops and service providers in the Philippines get most inquiries through chat. The same questions arrive all day: <strong>“magkano po?”, “bukas pa ba kayo?”, “pwede pa-book bukas?”</strong> Replies come late, slots get double-booked, and orders sit in message threads with no clear status.</p>
+<p>A generic chatbot doesn't fix this. If it invents a price, promises a discount or books a time that's already taken, the owner loses money and trust.</p>
+</section>
+
+<section>
+<h2>The approach</h2>
+<p>The rule I designed around: <strong>the AI prepares, people confirm.</strong></p>
+<div class="flow" style="margin: 4px 0 14px"><span>Customer asks</span><i>→</i><span>AI calls controlled tools</span><i>→</i><span>Draft</span><i>→</i><span>Customer reviews &amp; confirms</span><i>→</i><span>Staff approve</span></div>
+<ul>
+<li><strong>Answers come from live data.</strong> The AI can only call controlled tools (business info, catalog search, availability, draft preparation and handoff), so prices and open slots always match the database.</li>
+<li><strong>It can't change what matters.</strong> No tool lets the AI change prices, give discounts or verify payments. Anything outside its tools is handed off to staff with a summary.</li>
+<li><strong>Typing never books.</strong> Chat produces a draft that opens the normal form, pre-filled. The customer reviews and confirms, and services that need approval wait for staff.</li>
+<li><strong>Two AI providers, one contract.</strong> Gemini function calling for natural replies, and an offline rules engine (English, Tagalog, Taglish) that runs at zero cost and takes over when a quota is reached.</li>
+</ul>
+</section>
+
+<section>
+<h2>Hard parts</h2>
+<ul>
+<li><strong>Double bookings.</strong> Slot checks run inside a locked database transaction, and tests confirm a second customer can't take an overlapping time.</li>
+<li><strong>Stock that doesn't drift.</strong> Orders reserve stock on submission, deduct it once at handover and release it on cancel or expiry.</li>
+<li><strong>Trust between businesses and staff.</strong> Every record is scoped to its business, owner, manager and staff permissions are enforced on the server, owners use TOTP two-step verification, and every action is audit-logged.</li>
+<li><strong>Private tracking without accounts.</strong> Customers track requests through single-use, expiring email links. A reference number alone shows nothing.</li>
+<li><strong>Taglish date and time parsing.</strong> Phrases like “sa sabado alas dos ng hapon” resolve to a real slot in the business's time zone.</li>
+</ul>
+</section>
+
+<section>
+<h2>How it's checked</h2>
+<div class="nums" style="margin-bottom: 14px">
+<div><b>50</b><span>feature and unit tests on PHP 8.3 and 8.4</span></div>
+<div><b>60</b><span>Taglish AI evaluation cases run in CI</span></div>
+<div><b>1</b><span>Docker image smoke-tested on every push</span></div>
+</div>
+<p>GitHub Actions also captures screenshots and this walkthrough with Playwright, so the visuals in the README always come from the current code.</p>
+</section>
+
+<section>
+<h2>Limits and next steps</h2>
+<ul>
+<li>It runs on <strong>fictional data</strong> and hasn't been piloted with a real business yet.</li>
+<li>Gemini's accuracy still needs to be measured with a real key. The evaluation currently scores the offline rules engine.</li>
+<li>The free hosted demo sleeps when idle and resets its data on restart. Real customers would need paid hosting, email delivery and a production review.</li>
+<li>Next: run a pilot with one salon, add customer self-service rescheduling, and score Gemini on the same 60 cases.</li>
+</ul>
+</section>
+
+<section class="btns" style="flex-direction: row"><a class="pri" href="./">Try the demo ↗</a><a href="https://github.com/ashweak/vendra" target="_blank" rel="noopener">Source on GitHub ↗</a><a href="../projects.html">← All projects</a></section>
+</div>
+</main>
+</div>
+<script src="../assets/main.js" defer></script>
+</body>
+</html>
