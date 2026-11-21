@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vendra case study — Lance Agua</title>
-<meta name="description" content="How Vendra, an AI business assistant for small Philippine businesses, was designed, built and tested.">
+<meta name="description" content="How Vendra, a privacy-first business assistant for small Philippine businesses, was designed, built and tested.">
 <meta property="og:title" content="Vendra case study — Lance Agua">
-<meta property="og:description" content="How Vendra, an AI business assistant for small Philippine businesses, was designed, built and tested.">
+<meta property="og:description" content="How Vendra, a privacy-first business assistant for small Philippine businesses, was designed, built and tested.">
 <meta property="og:image" content="../assets/img/portrait-light.png">
 <link rel="icon" href="../assets/favicon.ico" sizes="any">
 <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
@@ -145,9 +145,9 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 <div class="cs" style="width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 40px">
 <section class="phead" style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
 <a href="../projects.html" style="color: var(--c858585); font-size: 14px">← all projects</a>
-<span style="font-size: 13px; letter-spacing: 1px; color: var(--c858585)">CASE STUDY · AI · SMALL BUSINESS · 2026</span>
+<span style="font-size: 13px; letter-spacing: 1px; color: var(--c858585)">CASE STUDY · SMALL BUSINESS · PRIVACY · 2026</span>
 <h1 class="ttl-px" style="margin: 0; font-family: 'Press Start 2P', monospace; font-size: 20px; line-height: 1.5; font-weight: 400">Vendra</h1>
-<p style="margin: 0; font-size: 17px; color: var(--ca3a3a3)">An AI business assistant that turns customer chats into bookings, orders and quotations that small Philippine businesses can trust.</p>
+<p style="margin: 0; font-size: 17px; color: var(--ca3a3a3)">A business assistant that turns customer chats into bookings, orders and quotations that small Philippine businesses can trust — without sending anyone’s messages to an outside AI.</p>
 <div class="btns" style="margin-top: 6px"><a class="pri" href="./">Try the demo ↗</a><a href="https://github.com/ashweak/vendra" target="_blank" rel="noopener">GitHub ↗</a><a href="https://render.com/deploy?repo=https://github.com/ashweak/vendra" target="_blank" rel="noopener">Deploy your own (free) ↗</a></div>
 </section>
 
@@ -159,7 +159,7 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 <div class="facts">
 <div><span>Role</span><b>Design &amp; development</b></div>
 <div><span>Type</span><b>Multi-tenant web app</b></div>
-<div><span>Stack</span><b>Laravel 13 · Gemini</b></div>
+<div><span>Stack</span><b>Laravel 13 · Docker</b></div>
 <div><span>Status</span><b>Demo, fictional data</b></div>
 </div>
 
@@ -171,13 +171,13 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 
 <section>
 <h2>The approach</h2>
-<p>The rule I designed around: <strong>the AI prepares, people confirm.</strong></p>
-<div class="flow" style="margin: 4px 0 14px"><span>Customer asks</span><i>→</i><span>AI calls controlled tools</span><i>→</i><span>Draft</span><i>→</i><span>Customer reviews &amp; confirms</span><i>→</i><span>Staff approve</span></div>
+<p>The rule I designed around: <strong>the assistant prepares, people confirm.</strong></p>
+<div class="flow" style="margin: 4px 0 14px"><span>Customer asks</span><i>→</i><span>Auto-assistant calls controlled tools</span><i>→</i><span>Draft</span><i>→</i><span>Customer reviews &amp; confirms</span><i>→</i><span>Staff approve</span></div>
 <ul>
-<li><strong>Answers come from live data.</strong> The AI can only call controlled tools (business info, catalog search, availability, draft preparation and handoff), so prices and open slots always match the database.</li>
-<li><strong>It can't change what matters.</strong> No tool lets the AI change prices, give discounts or verify payments. Anything outside its tools is handed off to staff with a summary.</li>
+<li><strong>Answers come from live data.</strong> The auto-assistant can only call controlled tools (business info, catalog search, availability, draft preparation and handoff), so prices and open slots always match the database.</li>
+<li><strong>It can't change what matters.</strong> No tool lets it change prices, give discounts or verify payments. Anything outside its tools is handed off to staff with a summary.</li>
 <li><strong>Typing never books.</strong> Chat produces a draft that opens the normal form, pre-filled. The customer reviews and confirms, and services that need approval wait for staff.</li>
-<li><strong>Two AI providers, one contract.</strong> Gemini function calling for natural replies, and an offline rules engine (English, Tagalog, Taglish) that runs at zero cost and takes over when a quota is reached.</li>
+<li><strong>No outside AI, on purpose.</strong> I first added Gemini, then removed it: its free tier lets Google use submitted content and have people review it, which isn’t acceptable for real customers’ messages. The offline rules engine (English, Tagalog, Taglish) costs nothing and keeps every message on the server.</li>
 </ul>
 </section>
 
@@ -193,10 +193,20 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </section>
 
 <section>
+<h2>Built for Philippine rules</h2>
+<ul>
+<li><strong>Data Privacy Act (RA 10173).</strong> Every business page has a privacy notice linked from each form. Verified customers download their data as JSON and send correction or deletion requests that owners resolve and log. Owners get a breach-response checklist with the 72-hour notification rule.</li>
+<li><strong>Internet Transactions Act (RA 11967).</strong> A business can’t go live until its name, physical address, phone and email are filled in, and the page shows them along with its registered name and DTI/SEC number.</li>
+<li><strong>BIR invoicing.</strong> Summaries say they aren’t official invoices, so nobody mistakes them for tax documents.</li>
+<li><strong>Account security.</strong> Password reset, email verification, two-step sign-in, a strict content security policy and HSTS. The public demo locks changes that would affect other visitors and resets every 6 hours.</li>
+</ul>
+</section>
+
+<section>
 <h2>How it's checked</h2>
 <div class="nums" style="margin-bottom: 14px">
-<div><b>50</b><span>feature and unit tests on PHP 8.3 and 8.4</span></div>
-<div><b>60</b><span>Taglish AI evaluation cases run in CI</span></div>
+<div><b>64</b><span>feature and unit tests on PHP 8.3 and 8.4</span></div>
+<div><b>60</b><span>Taglish assistant evaluation cases run in CI</span></div>
 <div><b>1</b><span>Docker image smoke-tested on every push</span></div>
 </div>
 <p>GitHub Actions also captures screenshots and this walkthrough with Playwright, so the visuals in the README always come from the current code.</p>
@@ -206,9 +216,9 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 <h2>Limits and next steps</h2>
 <ul>
 <li>It runs on <strong>fictional data</strong> and hasn't been piloted with a real business yet.</li>
-<li>Gemini's accuracy still needs to be measured with a real key. The evaluation currently scores the offline rules engine.</li>
-<li>The free hosted demo sleeps when idle and resets its data on restart. Real customers would need paid hosting, email delivery and a production review.</li>
-<li>Next: run a pilot with one salon, add customer self-service rescheduling, and score Gemini on the same 60 cases.</li>
+<li>The rules engine handles common questions well but not open-ended ones; those go to staff.</li>
+<li>The free hosted demo sleeps when idle and resets its data every 6 hours. Real customers would need paid hosting, email delivery and a production review.</li>
+<li>Next: run a pilot with one salon, add customer self-service rescheduling, and add booking reminder emails.</li>
 </ul>
 </section>
 
