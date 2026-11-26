@@ -1,0 +1,46 @@
+# Daily refresh of the GitHub contributions graph on the home page.
+# Cost: free (GitHub Actions on a public repository).
+name: GitHub contributions
+
+on:
+  schedule:
+    - cron: "41 15 * * *"   # every day 23:41 Philippine time (15:41 UTC)
+  workflow_dispatch: {}      # "Run workflow" button in the Actions tab
+  push:
+    branches: [main]
+    paths: [".github/workflows/github-contributions.yml", ".github/scripts/fetch_contributions.py"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-contributions
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch contributions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/fetch_contributions.py ashweak assets/data/github-contributions.json
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name "contributions-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/github-contributions.json
+          if git diff --cached --quiet; then
+            echo "No changes." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git commit -m "GitHub contributions update ($(date -u +%F))"
+          for i in 1 2 3; do
+            git pull --rebase -q origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1

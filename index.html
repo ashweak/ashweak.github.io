@@ -99,6 +99,37 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 .gname span{font-size:14px;color:var(--c5e5e5e)}
 .gfoot p{margin:0;font-size:14px;color:var(--c858585)}
 @media (max-width:560px){.ggrid{grid-template-columns:1fr}}
+
+.ghc-sec{display:flex;flex-direction:column;gap:12px}
+.ghc-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.ghc{--g0:#161b22;--g1:#0e4429;--g2:#006d32;--g3:#26a641;--g4:#39d353;--gline:rgba(255,255,255,.05);display:flex;flex-direction:column;gap:8px}
+.tk.light .ghc{--g0:#ebedf0;--g1:#9be9a8;--g2:#40c463;--g3:#30a14e;--g4:#216e39;--gline:rgba(27,31,35,.06)}
+.ghc-total{margin:0;font-size:16px;color:var(--ce0e0e0)}
+.ghc-box{border:1px solid var(--c262626);border-radius:6px;padding:12px 14px 10px}
+.ghc-scroll{overflow-x:auto;scrollbar-width:thin}
+.ghc-cal{display:grid;grid-template-columns:26px repeat(var(--weeks,53),minmax(0,1fr));grid-auto-rows:auto;gap:3px;min-height:110px}
+.ghc.ready .ghc-cal{min-height:0}
+.ghc-month,.ghc-day{font-size:12px;line-height:1;color:var(--c858585);white-space:nowrap;align-self:center}
+.ghc-month{grid-row:1;padding-bottom:3px}
+.ghc-day{grid-column:1;position:sticky;left:0;z-index:1;background:var(--c0a0a0a);padding-right:4px;margin-right:-4px}
+.ghc-cell{appearance:none;-webkit-appearance:none;display:block;width:100%;aspect-ratio:1;padding:0;margin:0;border:0;border-radius:2px;background:var(--g0);box-shadow:inset 0 0 0 1px var(--gline);cursor:pointer}
+.ghc-cell[data-level="1"],.ghc-legend i[data-level="1"]{background:var(--g1)}
+.ghc-cell[data-level="2"],.ghc-legend i[data-level="2"]{background:var(--g2)}
+.ghc-cell[data-level="3"],.ghc-legend i[data-level="3"]{background:var(--g3)}
+.ghc-cell[data-level="4"],.ghc-legend i[data-level="4"]{background:var(--g4)}
+.ghc-cell:hover{box-shadow:inset 0 0 0 1px var(--c858585)}
+.ghc-cell[aria-pressed="true"]{outline:2px solid var(--ce5e5e5);outline-offset:1px}
+.ghc-cell:focus-visible{outline:2px solid var(--cd0d0d0);outline-offset:1px}
+.ghc-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px 16px;margin-top:8px;font-size:13px;color:var(--c858585)}
+.ghc-picked{color:var(--ca3a3a3)}
+.ghc-legend{display:inline-flex;align-items:center;gap:3px}
+.ghc-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--g0);box-shadow:inset 0 0 0 1px var(--gline)}
+.ghc-legend i:first-child{margin-left:3px}.ghc-legend i:last-child{margin-right:3px}
+.ghc-tip{position:fixed;z-index:60;pointer-events:none;padding:5px 9px;border-radius:5px;background:var(--ce5e5e5);color:var(--c0a0a0a);font-size:14px;line-height:1.2;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.ghc-tip::after{content:"";position:absolute;left:var(--arrow,50%);top:100%;margin-left:-5px;border:5px solid transparent;border-top-color:var(--ce5e5e5)}
+.ghc-tip.below::after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:var(--ce5e5e5)}
+.ghc.failed .ghc-box{display:none}
+@media (max-width: 700px){.ghc-cal{min-width:620px}.ghc-box{padding:10px}}
 </style>
 </head>
 <body>
@@ -163,8 +194,21 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </div>
 </section>
 
+<section id="contributions" class="ghc-sec" aria-labelledby="ghc-title">
+<div class="ghc-head"><span class="shead" id="ghc-title">01 — contributions</span><a class="slink" href="https://github.com/ashweak" target="_blank" rel="noopener">github profile →</a></div>
+<div class="ghc" data-login="ashweak" data-src="assets/data/github-contributions.json">
+<p class="ghc-total">Loading contributions…</p>
+<div class="ghc-box">
+<div class="ghc-scroll"><div class="ghc-cal" role="group" aria-label="Contribution calendar. Use the arrow keys to move between days."></div></div>
+<div class="ghc-foot"><span class="ghc-picked" aria-live="polite">Click a day to see its contributions.</span><span class="ghc-legend" aria-label="Color scale from fewer to more contributions">Less <i data-level="0"></i><i data-level="1"></i><i data-level="2"></i><i data-level="3"></i><i data-level="4"></i> More</span></div>
+</div>
+<div class="ghc-tip" role="tooltip" hidden></div>
+<noscript><p class="ghc-total">See my contributions on <a href="https://github.com/ashweak">GitHub ↗</a>.</p></noscript>
+</div>
+</section>
+
 <section id="stack" style="grid-column: 2 / 5; grid-row: 2 / 3; padding: 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px">
-<div style="align-self: stretch; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; color: var(--c858585); font-size: 14px"><span class="shead">01 — stack</span><a class="slink" href="stack.html">full stack →</a></div>
+<div style="align-self: stretch; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; color: var(--c858585); font-size: 14px"><span class="shead">02 — stack</span><a class="slink" href="stack.html">full stack →</a></div>
 <div style="align-self: stretch; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 14px 32px">
 
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
@@ -201,10 +245,11 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 <span style="width: 84px; color: var(--c858585); font-size: 14px">tools</span>
 <span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 14px; color: var(--ccfcfcf)">Git</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 14px; color: var(--ccfcfcf)">Docker</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 14px; color: var(--ccfcfcf)">GitHub Actions</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 14px; color: var(--ccfcfcf)">Linux (WSL)</span><span style="background: var(--c262626); padding: 1px 8px; border-radius: 3px; font-size: 14px; color: var(--ccfcfcf)">Composer</span>
 </div>
+</div>
 </section>
 
 <section id="projects" style="grid-column: 1 / 3; grid-row: 3 / 5; padding: 22px 26px; display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span class="shead">02 — projects</span><a class="slink" href="projects.html">all projects →</a></div>
+<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span class="shead">03 — projects</span><a class="slink" href="projects.html">all projects →</a></div>
 
 <article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
 <img src="assets/img/project-sheetfix.jpg" alt="SheetFix screenshot" loading="lazy" style="flex: 0 0 auto; width: 110px; height: 72px; object-fit: cover; object-position: top; background: var(--c262626)">
@@ -235,125 +280,10 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 
 <div style="display: flex; gap: 16px; font-size: 14px"><a href="https://github.com/ashweak/sales-opportunity-assistant" target="_blank" rel="noopener">github ↗</a></div></div>
 </article>
-
-<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
-<img src="assets/img/project-vendra.jpg" alt="Vendra screenshot" loading="lazy" style="flex: 0 0 auto; width: 110px; height: 72px; object-fit: cover; object-position: top; background: var(--c262626)">
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 18px; font-weight: 400; color: var(--ce0e0e0)">Vendra</h3><a href="vendra/" aria-label="Open Vendra live demo">↗</a></div>
-<p style="margin: 0; color: var(--ca3a3a3)">AI business assistant that turns Taglish customer chats into bookings, orders and quotations, with staff handoff and server-side guardrails.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Laravel</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">PHP</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Gemini AI</span></div>
-
-<div style="display: flex; gap: 16px; font-size: 14px"><a href="vendra/">live demo ↗</a><a href="https://github.com/ashweak/vendra" target="_blank" rel="noopener">github ↗</a></div></div>
-</article>
-
-<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
-<img src="assets/img/project-daylog.jpg" alt="DAYLOG screenshot" loading="lazy" style="flex: 0 0 auto; width: 110px; height: 72px; object-fit: cover; object-position: top; background: var(--c262626)">
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 18px; font-weight: 400; color: var(--ce0e0e0)">DAYLOG</h3><a href="https://github.com/ashweak/daylog" target="_blank" rel="noopener" aria-label="Open DAYLOG on GitHub">↗</a></div>
-<p style="margin: 0; color: var(--ca3a3a3)">Desktop task tracker with a dashboard, scheduling, focus mode, app-time tracking, GitHub project and deploy status, and a live contribution graph.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Electron</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">JavaScript</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Node.js</span></div>
-
-<div style="display: flex; gap: 16px; font-size: 14px"><a href="https://github.com/ashweak/daylog" target="_blank" rel="noopener">github ↗</a></div></div>
-</article>
-
-<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
-<img src="assets/img/project-wirelab.jpg" alt="WireLab PH screenshot" loading="lazy" style="flex: 0 0 auto; width: 110px; height: 72px; object-fit: cover; object-position: top; background: var(--c262626)">
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 18px; font-weight: 400; color: var(--ce0e0e0)">WireLab PH</h3><a href="https://ashweak.github.io/wirelab/" target="_blank" rel="noopener" aria-label="Open WireLab PH live demo">↗</a></div>
-<p style="margin: 0; color: var(--ca3a3a3)">3D house designer and wiring lab with Philippine Electrical Code checks, AutoCAD-style drafting and true-scale PDF plans.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">TypeScript</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Next.js</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Three.js</span></div>
-
-<div style="display: flex; gap: 16px; font-size: 14px"><a href="https://ashweak.github.io/wirelab/" target="_blank" rel="noopener">live demo ↗</a><a href="https://github.com/ashweak/wirelab" target="_blank" rel="noopener">github ↗</a></div></div>
-</article>
-
-<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
-<img src="assets/img/project-saansakay.jpg" alt="SaanSakay screenshot" loading="lazy" style="flex: 0 0 auto; width: 110px; height: 72px; object-fit: cover; object-position: top; background: var(--c262626)">
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 18px; font-weight: 400; color: var(--ce0e0e0)">SaanSakay</h3><a href="https://saansakay.onrender.com" target="_blank" rel="noopener" aria-label="Open SaanSakay live demo">↗</a></div>
-<p style="margin: 0; color: var(--ca3a3a3)">AI commute guide for Metro Manila: Taglish trip search, road-snapped jeep/bus/train routes, official LTFRB fares and live tracking with a 1 km "Para" countdown.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Python</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">FastAPI</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">React</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Gemini AI</span></div>
-
-<div style="display: flex; gap: 16px; font-size: 14px"><a href="https://saansakay.onrender.com" target="_blank" rel="noopener">live demo ↗</a><a href="https://github.com/ashweak/saansakay" target="_blank" rel="noopener">github ↗</a></div></div>
-</article>
-
-<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
-<img src="assets/img/project-bantaypondo.jpg" alt="BantayPondo screenshot" loading="lazy" style="flex: 0 0 auto; width: 110px; height: 72px; object-fit: cover; object-position: top; background: var(--c262626)">
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 18px; font-weight: 400; color: var(--ce0e0e0)">BantayPondo</h3><a href="bantaypondo/" aria-label="Open BantayPondo live demo">↗</a></div>
-<p style="margin: 0; color: var(--ca3a3a3)">AI agent watchdog that flags 9,855 DPWH flood control projects for review, with every finding linked to its source.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Python</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">FastAPI</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">LangGraph</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Gemini AI</span></div>
-
-<div style="display: flex; gap: 16px; font-size: 14px"><a href="bantaypondo/">live demo ↗</a><a href="https://github.com/ashweak/bantaypondo" target="_blank" rel="noopener">github ↗</a></div></div>
-</article>
-
-<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
-<img src="assets/img/project-resumatch.jpg" alt="ResuMatch AI screenshot" loading="lazy" style="flex: 0 0 auto; width: 110px; height: 72px; object-fit: cover; object-position: top; background: var(--c262626)">
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 18px; font-weight: 400; color: var(--ce0e0e0)">ResuMatch AI</h3><a href="https://github.com/ashweak/ai-resume-matcher" aria-label="Open ResuMatch AI on GitHub" target="_blank" rel="noopener">↗</a></div>
-<p style="margin: 0; color: var(--ca3a3a3)">AI app that ranks jobs for a resume and scores it like a recruiter.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Python</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">FastAPI</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Gemini AI</span></div>
-
-<div style="display: flex; gap: 16px; font-size: 14px"><a href="https://github.com/ashweak/ai-resume-matcher" target="_blank" rel="noopener">github ↗</a></div></div>
-</article>
-
-<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
-<div role="img" aria-label="Screenshot placeholder" style="flex: 0 0 auto; width: 110px; height: 72px; background: var(--c262626)"></div>
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 18px; font-weight: 400; color: var(--ce0e0e0)">Sand Siever Control</h3><a href="projects.html" aria-label="Open Sand Siever Control">↗</a></div>
-<p style="margin: 0; color: var(--ca3a3a3)">Android app that controls a sand sieving machine over Wi-Fi (ESP8266), with roles, tasks and reports.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Java</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Android</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">SQLite</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">ESP8266</span></div>
-</div>
-</article>
-
-<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
-<div role="img" aria-label="Screenshot placeholder" style="flex: 0 0 auto; width: 110px; height: 72px; background: var(--c262626)"></div>
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 18px; font-weight: 400; color: var(--ce0e0e0)">glutahomeph</h3><a href="projects.html" aria-label="Open glutahomeph">↗</a></div>
-<p style="margin: 0; color: var(--ca3a3a3)">Order system with secure release and waybill workflow.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Laravel</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">PHP</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">MySQL</span></div>
-</div>
-</article>
-
-<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
-<div role="img" aria-label="Screenshot placeholder" style="flex: 0 0 auto; width: 110px; height: 72px; background: var(--c262626)"></div>
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 18px; font-weight: 400; color: var(--ce0e0e0)">Pure Motion</h3><a href="projects.html" aria-label="Open Pure Motion">↗</a></div>
-<p style="margin: 0; color: var(--ca3a3a3)">Fitness trainer site with programs, booking schedule and email.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">Laravel</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">PHP</span></div>
-</div>
-</article>
-
-<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
-<img src="assets/img/project-ojt-calvin.jpg" alt="Calvin Delos Santos screenshot" loading="lazy" style="flex: 0 0 auto; width: 110px; height: 72px; object-fit: cover; object-position: top; background: var(--c262626)">
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 18px; font-weight: 400; color: var(--ce0e0e0)">Calvin Delos Santos</h3><a href="https://ashweak.github.io/ojt-calvin/" aria-label="Open Calvin Delos Santos" target="_blank" rel="noopener">↗</a></div>
-<p style="margin: 0; color: var(--ca3a3a3)">Client OJT portfolio with about, skills, projects and an inquiry form.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">HTML/CSS</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">JavaScript</span></div>
-</div>
-</article>
-
-<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
-<img src="assets/img/project-ojt-daniel.jpg" alt="Daniel San Pedro screenshot" loading="lazy" style="flex: 0 0 auto; width: 110px; height: 72px; object-fit: cover; object-position: top; background: var(--c262626)">
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 18px; font-weight: 400; color: var(--ce0e0e0)">Daniel San Pedro</h3><a href="https://side55195.github.io/ojt-daniel/" aria-label="Open Daniel San Pedro" target="_blank" rel="noopener">↗</a></div>
-<p style="margin: 0; color: var(--ca3a3a3)">Client OJT portfolio for a web developer intern.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">HTML/CSS</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">JavaScript</span></div>
-</div>
-</article>
-
-<article style="display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--c2e2e2e)">
-<div role="img" aria-label="Screenshot placeholder" style="flex: 0 0 auto; width: 110px; height: 72px; background: var(--c262626)"></div>
-<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 18px; font-weight: 400; color: var(--ce0e0e0)">UrbanSteps</h3><a href="projects.html" aria-label="Open UrbanSteps">↗</a></div>
-<p style="margin: 0; color: var(--ca3a3a3)">Online shoe store with accounts, cart, checkout and receipts.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">PHP</span><span style="background: var(--c262626); padding: 0 7px; border-radius: 3px; font-size: 13px; color: var(--ccfcfcf)">MySQL</span></div>
-</div>
-</article>
-
 </section>
 
 <section id="experience" style="grid-column: 3 / 5; grid-row: 3 / 4; padding: 22px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span class="shead">03 — experience</span><a class="slink" href="experience.html">full journey →</a></div>
+<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span class="shead">04 — experience</span><a class="slink" href="experience.html">full journey →</a></div>
 
 <div style="display: flex; gap: 16px">
 <div style="width: 108px; flex: 0 0 auto; color: var(--c858585)">2026 – present</div>
@@ -383,7 +313,7 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </section>
 
 <section id="certifications" style="grid-column: 3 / 5; grid-row: 4 / 5; padding: 22px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span class="shead">04 — certifications</span><a class="slink" href="certifications.html">all →</a></div>
+<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span class="shead">05 — certifications</span><a class="slink" href="certifications.html">all →</a></div>
 
 <div style="display: flex; justify-content: space-between; gap: 8px"><span>CEFR English Language Proficiency Certificate</span><a href="certifications.html" style="color: var(--c858585)">verify ↗</a></div>
 
@@ -396,7 +326,7 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </section>
 
 <section id="seminars" style="grid-column: 1 / 5; grid-row: 5 / 6; padding: 22px 26px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span class="shead">05 — seminars</span><a class="slink" href="seminars.html">all →</a></div>
+<div style="display: flex; justify-content: space-between; color: var(--c858585); font-size: 14px"><span class="shead">06 — seminars</span><a class="slink" href="seminars.html">all →</a></div>
 
 <div style="display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--c2e2e2e)"><span>Building an AI-Ready Workforce <span style="color: var(--c858585)">· PCS TECHTALKS</span></span><span style="color: var(--c858585)">Sep 2026</span></div>
 
@@ -411,5 +341,6 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </main>
 </div>
 <script src="assets/main.js" defer></script>
+<script src="assets/contrib.js" defer></script>
 </body>
 </html>
