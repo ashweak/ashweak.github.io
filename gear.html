@@ -81,9 +81,21 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 .gname span{font-size:14px;color:var(--c5e5e5e)}
 .gfoot p{margin:0;font-size:14px;color:var(--c858585)}
 @media (max-width:560px){.ggrid{grid-template-columns:1fr}}
+
+/* accessibility */
+.skip{position:absolute;left:12px;top:-60px;z-index:100;padding:6px 14px;font-family:'VT323',monospace;border-radius:4px;background:var(--ce5e5e5);color:var(--c0a0a0a) !important;font-size:16px;text-decoration:none;transition:top .15s ease}
+.skip:focus{top:12px}
+.sr-only{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+main:focus{outline:none}
+.credit{color:var(--c858585) !important}
+.credit a,.exp-cta a,main p a{text-decoration:underline;text-underline-offset:2px}
+div[role="img"]{color:var(--c858585) !important}
+.nf-code{color:var(--c858585) !important}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <div class="tk" style="min-height: 1000px; background: var(--c0a0a0a); color: var(--ce5e5e5); font-family: 'VT323', monospace; font-size: 15px; line-height: 1.35; display: flex; flex-wrap: wrap"><script>try{if(localStorage.getItem("la-theme")==="light")document.currentScript.parentElement.classList.add("light")}catch(e){}</script>
 <aside style="flex: 1 1 200px; max-width: 230px; border-right: 1px solid var(--c262626); background: var(--c0e0e0e); box-sizing: border-box">
 <button class="menu-btn" type="button" data-action="toggleMenu" aria-label="Open menu" aria-expanded="false" style="align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: var(--ce0e0e0); cursor: pointer"><svg width="22" height="22" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M1 2h6v1H1zM1 4h6v1H1zM1 6h6v1H1z" fill="currentColor"></path></svg></button>
@@ -116,7 +128,7 @@ main [style*="background: var(--c121212)"]:hover{border-color:var(--c3a3a3a)}
 </div>
 </div>
 </aside>
-<main style="flex: 999 1 560px; min-width: 0; padding: 40px 32px 64px; box-sizing: border-box; display: flex; justify-content: center">
+<main id="main" tabindex="-1" style="flex: 999 1 560px; min-width: 0; padding: 40px 32px 64px; box-sizing: border-box; display: flex; justify-content: center">
 <div style="width: 100%; max-width: 660px; display: flex; flex-direction: column; gap: 40px">
 <section class="phead" style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
 <a href="index.html" style="color: var(--c858585); font-size: 14px">← back home</a>
